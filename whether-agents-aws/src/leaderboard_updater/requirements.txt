@@ -1,0 +1,1 @@
+# Leaderboard updater dependencies - common layer provides core utilities

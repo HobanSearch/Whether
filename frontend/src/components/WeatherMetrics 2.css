@@ -1,0 +1,49 @@
+.weather-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.weather-metric-item {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.metric-header .metric-icon {
+    font-size: 16px;
+}
+
+.metric-header .metric-label {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-body .metric-value {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+.metric-body .metric-sub-value {
+    font-size: var(--font-size-xs);
+    margin-top: 2px;
+}
+
+@media (max-width: 360px) {
+    .weather-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+}

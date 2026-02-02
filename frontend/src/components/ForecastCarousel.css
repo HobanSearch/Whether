@@ -1,0 +1,111 @@
+.forecast-carousel {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    position: relative;
+    min-width: 130px;
+}
+
+.carousel-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    line-height: 1;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-content.animating {
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+.carousel-nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: opacity 0.2s, color 0.2s;
+    font-size: 12px;
+    min-width: 20px;
+    min-height: 24px;
+}
+
+.carousel-nav-btn:hover {
+    opacity: 1;
+    color: var(--color-primary-cyan);
+}
+
+.carousel-nav-btn:active {
+    transform: scale(0.9);
+}
+
+.nav-arrow {
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+/* Progress bar instead of dots for many locations */
+.carousel-progress {
+    position: absolute;
+    bottom: -6px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.carousel-progress-bar {
+    height: 100%;
+    background: var(--color-primary-cyan);
+    box-shadow: 0 0 4px var(--color-primary-cyan);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+
+/* Region indicator emoji */
+.region-indicator {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* Weather display styles */
+.forecast-carousel .temp-value {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary-cyan);
+    font-family: var(--font-mono);
+    text-shadow: var(--neon-glow-cyan);
+    min-width: 48px;
+    text-align: right;
+}
+
+.forecast-carousel .location-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+    font-family: var(--font-mono);
+    min-width: 28px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 360px) {
+    .carousel-nav-btn {
+        display: none;
+    }
+
+    .forecast-carousel {
+        min-width: 90px;
+    }
+
+    .carousel-progress {
+        left: 0;
+        right: 0;
+    }
+}

@@ -1,0 +1,88 @@
+.forecast-page {
+    padding-bottom: var(--spacing-xl);
+}
+
+.page-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.location-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.date-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.date-picker {
+    display: flex;
+    gap: var(--spacing-xs);
+    overflow-x: auto;
+    padding-bottom: var(--spacing-xs);
+    -webkit-overflow-scrolling: touch;
+}
+
+.date-picker::-webkit-scrollbar {
+    display: none;
+}
+
+.date-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.date-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.date-btn.active {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--color-primary-cyan);
+    color: var(--color-primary-cyan);
+}
+
+.section-title {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-secondary);
+}
+
+.current-weather-section,
+.forecast-section,
+.metrics-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.market-prompt-section {
+    margin-top: var(--spacing-xl);
+}
+
+.market-prompt {
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.market-prompt h4 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+}
+
+.market-prompt p {
+    margin-bottom: var(--spacing-md);
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}

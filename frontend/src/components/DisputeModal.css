@@ -1,0 +1,304 @@
+.dispute-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: var(--spacing-md);
+}
+
+.dispute-modal {
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dispute-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.dispute-header h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-warning);
+    margin: 0;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--color-text-primary);
+}
+
+.dispute-info {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.market-summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.market-location {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.market-question {
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+}
+
+.settlement-info {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.settlement-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+}
+
+.settlement-row .label {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.settlement-row .value {
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+.settlement-row .outcome-yes {
+    color: var(--color-success);
+}
+
+.settlement-row .outcome-no {
+    color: var(--color-danger);
+}
+
+.dispute-deadline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+}
+
+.deadline-label {
+    color: var(--color-warning);
+    font-size: var(--font-size-sm);
+}
+
+.deadline-time {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--color-warning);
+}
+
+.dispute-form {
+    padding: var(--spacing-md);
+}
+
+.form-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.reason-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.reason-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.reason-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-text-secondary);
+}
+
+.reason-option.selected {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--color-warning);
+}
+
+.reason-label {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.reason-description {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+.evidence-input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    resize: vertical;
+    min-height: 100px;
+}
+
+.evidence-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.evidence-input:focus {
+    outline: none;
+    border-color: var(--color-warning);
+}
+
+.dispute-error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+    color: var(--color-danger);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.dispute-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.dispute-actions .btn {
+    flex: 1;
+}
+
+.btn-warning {
+    background: var(--color-warning);
+    color: #000;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+}
+
+.btn-warning:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.connect-warning {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-sm);
+}
+
+.dispute-note {
+    padding: var(--spacing-md);
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.dispute-note strong {
+    color: var(--color-warning);
+}
+
+/* Success state */
+.dispute-success {
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--spacing-md);
+    background: var(--color-success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #000;
+}
+
+.dispute-success h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.dispute-success p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+}

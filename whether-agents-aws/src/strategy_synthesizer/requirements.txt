@@ -1,0 +1,1 @@
+# Strategy synthesizer dependencies - common layer provides core utilities

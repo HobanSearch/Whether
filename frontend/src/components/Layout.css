@@ -1,0 +1,133 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: transparent;
+    /* Background handles by body */
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin: var(--spacing-sm);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.header-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--mesh-gradient);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.temp-display {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    line-height: 1;
+}
+
+.weather-icon-header {
+    font-size: 20px;
+}
+
+.temp-value {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary-cyan);
+}
+
+.location-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-image {
+    max-height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
+.main {
+    flex: 1;
+    padding-bottom: 90px;
+    padding-top: var(--spacing-sm);
+}
+
+.nav {
+    position: fixed;
+    bottom: var(--spacing-sm);
+    left: var(--spacing-sm);
+    right: var(--spacing-sm);
+    display: flex;
+    justify-content: space-around;
+    background: rgba(5, 7, 10, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: var(--glass-border);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-sm);
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: var(--spacing-xs);
+    color: var(--tg-theme-hint-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-item.active {
+    color: var(--color-primary-cyan);
+    text-shadow: var(--neon-glow-cyan);
+}
+
+.nav-icon {
+    font-size: 20px;
+}
+
+.nav-label {
+    font-size: var(--font-size-xs);
+}

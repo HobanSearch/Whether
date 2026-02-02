@@ -1,0 +1,6 @@
+{
+    "/api/*": "/$1",
+    "/api/markets/by-location/:locationCode": "/markets?location=:locationCode",
+    "/api/markets/:id": "/markets/:id",
+    "/api/forecasts": "/forecasts"
+}

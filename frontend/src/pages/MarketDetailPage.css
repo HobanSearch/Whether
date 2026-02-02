@@ -1,0 +1,401 @@
+.market-detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.market-detail-header {
+    margin-bottom: 0;
+    padding: var(--spacing-lg);
+    position: relative;
+    overflow: hidden;
+    border: var(--glass-border);
+}
+
+.header-mesh-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(0, 240, 255, 0.1), transparent 50%);
+    z-index: -1;
+}
+
+.market-location-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+}
+
+.location-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.location-icon {
+    font-size: 24px;
+}
+
+.market-location-name {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-badge.active {
+    color: var(--color-success-matrix);
+    border-color: rgba(0, 255, 65, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+.question-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.9;
+}
+
+.market-countdown {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Pressure Curve Chart */
+.pressure-curve-section {
+    padding: var(--spacing-md);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+
+.live-indicator {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-error);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.live-indicator::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-error);
+    animation: pulse 1s infinite;
+}
+
+.chart-viz {
+    flex: 1;
+    position: relative;
+    background: linear-gradient(180deg, rgba(0, 240, 255, 0.1) 0%, transparent 100%);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+    min-height: 100px;
+}
+
+.pressure-line {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-primary-cyan);
+    box-shadow: 0 0 10px var(--color-primary-cyan);
+    transform: skewY(-5deg);
+}
+
+.market-stats-row {
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+}
+
+.text-cyan {
+    color: var(--color-primary-cyan);
+}
+
+.text-orange {
+    color: var(--color-secondary-orange);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.stat-value {
+    font-weight: 600;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Header Badges */
+.header-badges {
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+}
+
+.market-type-badge {
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.market-type-badge.binary {
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--color-primary-cyan);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.market-type-badge.bracket {
+    background: rgba(138, 43, 226, 0.1);
+    color: #8a2be2;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.market-type-badge.scalar {
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Bracket Market Styles */
+.bracket-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.bracket-distribution {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.bracket-bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bracket-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bracket-range {
+    color: var(--color-text-secondary);
+}
+
+.bracket-pct {
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+}
+
+.bracket-bar-track {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.bracket-bar-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.3s ease;
+}
+
+.bracket-bar-fill.rank-1 {
+    background: linear-gradient(90deg, #ffd700, #ffb347);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.bracket-bar-fill.rank-2 {
+    background: linear-gradient(90deg, #c0c0c0, #d4d4d4);
+}
+
+.bracket-bar-fill.rank-3 {
+    background: linear-gradient(90deg, #cd7f32, #d4a56a);
+}
+
+.bracket-bar-fill.rank-4,
+.bracket-bar-fill.rank-5,
+.bracket-bar-fill.rank-6 {
+    background: rgba(138, 43, 226, 0.6);
+}
+
+.bracket-staked {
+    text-align: right;
+}
+
+.bracket-volume-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scalar Market Styles */
+.scalar-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.scalar-expected {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.text-gold {
+    color: #ffd700;
+}
+
+.text-success {
+    color: var(--color-success-matrix);
+}
+
+.text-danger {
+    color: #ff3c3c;
+}
+
+/* Settlement Styles */
+.settlement-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.outcome-badge {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    letter-spacing: 1px;
+}
+
+.outcome-badge.yes {
+    background: rgba(0, 240, 255, 0.2);
+    color: var(--color-primary-cyan);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.outcome-badge.no {
+    background: rgba(255, 92, 0, 0.2);
+    color: var(--color-secondary-orange);
+    border: 1px solid rgba(255, 92, 0, 0.3);
+}
+
+.bracket-settlement {
+    padding: var(--spacing-lg);
+}
+
+.winning-bracket-badge {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(255, 215, 0, 0.1));
+    border: 1px solid rgba(138, 43, 226, 0.4);
+}
+
+.winning-bracket-badge .bracket-label {
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    color: #8a2be2;
+}
+
+.observed-value {
+    color: var(--color-text-secondary);
+}
+
+.settlement-date {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Market type specific container styles */
+.market-detail-container.market-type-bracket .header-mesh-bg {
+    background: radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1), transparent 50%);
+}
+
+.market-detail-container.market-type-scalar .header-mesh-bg {
+    background: radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1), transparent 50%);
+}

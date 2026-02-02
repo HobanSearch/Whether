@@ -1,0 +1,368 @@
+:root {
+    /* Brand Colors (Cyber-Meteorology) */
+    --color-bg-deep-space: #0A0E14;
+    --color-primary-cyan: #00F0FF;
+    --color-secondary-orange: #FF5C00;
+    --color-success-matrix: #00FF41;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-glass-border: rgba(255, 255, 255, 0.1);
+
+    /* Market Type Colors */
+    --color-binary: #00F0FF;
+    --color-bracket: #8a2be2;
+    --color-scalar: #ffd700;
+
+    /* Product Line Colors */
+    --color-airport: #00F0FF;
+    --color-urban: #FF5C00;
+    --color-precipitation: #0096FF;
+    --color-extreme: #FF0032;
+    --color-energy: #FFD700;
+    --color-agricultural: #00C864;
+
+    /* Market Type Shadows */
+    --shadow-binary: 0 0 20px rgba(0, 240, 255, 0.3);
+    --shadow-bracket: 0 0 20px rgba(138, 43, 226, 0.3);
+    --shadow-scalar: 0 0 20px rgba(255, 215, 0, 0.3);
+
+    /* Product Line Shadows */
+    --shadow-airport: 0 0 15px rgba(0, 240, 255, 0.25);
+    --shadow-urban: 0 0 15px rgba(255, 92, 0, 0.25);
+    --shadow-precipitation: 0 0 15px rgba(0, 150, 255, 0.25);
+    --shadow-extreme: 0 0 15px rgba(255, 0, 50, 0.25);
+    --shadow-energy: 0 0 15px rgba(255, 215, 0, 0.25);
+    --shadow-agricultural: 0 0 15px rgba(0, 200, 100, 0.25);
+
+    /* Legacy Mappings (for compatibility) */
+    --tg-theme-bg-color: var(--color-bg-deep-space);
+    --tg-theme-text-color: var(--color-text-primary);
+    --tg-theme-hint-color: var(--color-text-secondary);
+    --tg-theme-link-color: var(--color-primary-cyan);
+    --tg-theme-button-color: var(--color-primary-cyan);
+    --tg-theme-button-text-color: #000000;
+    --tg-theme-secondary-bg-color: rgba(255, 255, 255, 0.03);
+    /* Faint glass */
+
+    /* Functional Colors */
+    --color-success: var(--color-success-matrix);
+    --color-error: #FF0033;
+    --color-warning: #ffd700;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Radii */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    /* Google Fonts Import */
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+    /* Typography */
+    --font-family-ui: 'Exo 2', 'Inter', -apple-system, sans-serif;
+    --font-family-header: 'Orbitron', 'Exo 2', sans-serif;
+    --font-family-data: 'Orbitron', 'SF Mono', monospace;
+
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    /* Prevents iOS zoom on inputs */
+    --font-size-lg: 20px;
+    --font-size-xl: 32px;
+    --font-size-huge: 48px;
+
+    /* Effects */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    /* Slightly more visible */
+    --glass-blur: blur(20px);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --neon-glow-cyan: 0 0 15px rgba(0, 240, 255, 0.4);
+    --neon-glow-orange: 0 0 15px rgba(255, 92, 0, 0.4);
+    --mesh-gradient: linear-gradient(180deg, #0f172a 0%, #05070a 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    /* Remove tap highlight */
+}
+
+body {
+    font-family: var(--font-family-ui);
+    background-color: var(--color-bg-deep-space);
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(0, 240, 255, 0.04) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(255, 92, 0, 0.04) 0%, transparent 25%);
+    background-attachment: fixed;
+    color: var(--tg-theme-text-color);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    user-select: none;
+    /* App-like feel */
+}
+
+/* Hide Scrollbar but allow scrolling */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    touch-action: manipulation;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+input,
+select {
+    font-family: inherit;
+    font-size: 16px;
+    /* Critical for iOS input zoom prevention */
+}
+
+a {
+    color: var(--tg-theme-link-color);
+    text-decoration: none;
+}
+
+.container {
+    padding: var(--spacing-md);
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--tg-theme-secondary-bg-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    min-height: 44px;
+}
+
+.btn-primary {
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+}
+
+.btn-secondary {
+    background-color: var(--tg-theme-secondary-bg-color);
+    color: var(--tg-theme-text-color);
+}
+
+.btn-success {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.btn-error {
+    background-color: var(--color-error);
+    color: white;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Glass Utilities */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-md);
+}
+
+.text-mono {
+    font-family: var(--font-family-data);
+}
+
+.text-glow {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.text-hint {
+    color: var(--color-text-secondary);
+}
+
+.text-sm {
+    font-size: var(--font-size-sm);
+}
+
+.text-lg {
+    font-size: var(--font-size-lg);
+}
+
+.text-xl {
+    font-size: var(--font-size-xl);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-sm {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+    margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.gap-sm {
+    gap: var(--spacing-sm);
+}
+
+.gap-md {
+    gap: var(--spacing-md);
+}
+
+.loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--tg-theme-secondary-bg-color);
+    border-top-color: var(--tg-theme-button-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation Icon Styles */
+.nav-icon-img,
+.link-icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-bottom: 2px;
+}
+
+/* GLOBAL CHROME ICON SYSTEM */
+/* Applies transparency and standardizes sizing/spacing for all new 3D assets */
+
+/* Base Styles */
+.weather-icon-large,
+.weather-icon-sm,
+.outcome-icon-img,
+.icon-tiny-img,
+.action-icon-img,
+.side-icon-img,
+.nav-icon-img,
+.link-icon-img,
+.sparkline-img {
+    mix-blend-mode: screen;
+    /* Removes black backgrounds */
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 4px;
+    /* Soften edges to prevent 'box' artifacts */
+}
+
+/* Specific Component Rules */
+
+/* Featured Market Hero (Large Yes/No) */
+.outcome-icon-img {
+    width: 36px;
+    height: 36px;
+    filter: brightness(1.1);
+    /* Ensure vividness vs glass background */
+}
+
+/* Hot Markets Carousel (Tiny inline icons) */
+.icon-tiny-img {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    /* Spacing text */
+}
+
+/* Home Page Action Cards (Large feature icons) */
+.action-icon-img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.2));
+    /* Add glow */
+}
+
+/* Trade Form Buttons (Medium inline icons) */
+.side-icon-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    /* Spacing from 'Long'/'Short' text */
+}
+
+/* Navigation & Link Cards */
+.nav-icon-img,
+.link-icon-img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}

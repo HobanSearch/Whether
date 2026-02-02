@@ -1,0 +1,250 @@
+{
+  "Comment": "Whether Agents Strategy Confirmation Workflow",
+  "StartAt": "ValidateInput",
+  "States": {
+    "ValidateInput": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.userInput",
+          "IsPresent": true,
+          "Next": "SynthesizeStrategy"
+        }
+      ],
+      "Default": "InvalidInput"
+    },
+    "InvalidInput": {
+      "Type": "Fail",
+      "Error": "ValidationError",
+      "Cause": "Missing required userInput field"
+    },
+    "SynthesizeStrategy": {
+      "Type": "Task",
+      "Resource": "${StrategySynthesizerArn}",
+      "Parameters": {
+        "action": "synthesize",
+        "userInput.$": "$.userInput"
+      },
+      "ResultPath": "$.synthesisResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.TaskFailed"],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "SynthesisFailed"
+        }
+      ],
+      "Next": "CheckSynthesisResult"
+    },
+    "SynthesisFailed": {
+      "Type": "Fail",
+      "Error": "SynthesisError",
+      "Cause": "Strategy synthesis failed"
+    },
+    "CheckSynthesisResult": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.synthesisResult.statusCode",
+          "NumericEquals": 200,
+          "Next": "WaitForConfirmation"
+        }
+      ],
+      "Default": "SynthesisFailed"
+    },
+    "WaitForConfirmation": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke.waitForTaskToken",
+      "Parameters": {
+        "FunctionName": "${StrategySynthesizerArn}",
+        "Payload": {
+          "action": "waitForConfirmation",
+          "strategy.$": "$.synthesisResult.strategy",
+          "userId.$": "$.userId",
+          "chatId.$": "$.chatId",
+          "taskToken.$": "$$.Task.Token"
+        }
+      },
+      "ResultPath": "$.confirmationResult",
+      "TimeoutSeconds": 3600,
+      "Catch": [
+        {
+          "ErrorEquals": ["States.Timeout"],
+          "ResultPath": "$.error",
+          "Next": "ConfirmationTimeout"
+        },
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "ConfirmationFailed"
+        }
+      ],
+      "Next": "CheckConfirmation"
+    },
+    "ConfirmationTimeout": {
+      "Type": "Pass",
+      "Result": {
+        "status": "timeout",
+        "message": "Strategy confirmation timed out after 1 hour"
+      },
+      "ResultPath": "$.finalResult",
+      "End": true
+    },
+    "ConfirmationFailed": {
+      "Type": "Fail",
+      "Error": "ConfirmationError",
+      "Cause": "Strategy confirmation failed"
+    },
+    "CheckConfirmation": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.confirmationResult.confirmed",
+          "BooleanEquals": true,
+          "Next": "CreateAgent"
+        },
+        {
+          "Variable": "$.confirmationResult.action",
+          "StringEquals": "adjust",
+          "Next": "SynthesizeStrategy"
+        }
+      ],
+      "Default": "StrategyCancelled"
+    },
+    "StrategyCancelled": {
+      "Type": "Pass",
+      "Result": {
+        "status": "cancelled",
+        "message": "Strategy was cancelled by user"
+      },
+      "ResultPath": "$.finalResult",
+      "End": true
+    },
+    "CreateAgent": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::dynamodb:putItem",
+      "Parameters": {
+        "TableName": "${AgentsTableName}",
+        "Item": {
+          "pk": {
+            "S.$": "States.Format('AGENT#{}', $.agentId)"
+          },
+          "sk": {
+            "S": "METADATA"
+          },
+          "gsi1pk": {
+            "S.$": "States.Format('USER#{}', $.userId)"
+          },
+          "gsi1sk": {
+            "S.$": "States.Format('AGENT#{}', $$.State.EnteredTime)"
+          },
+          "agentId": {
+            "S.$": "$.agentId"
+          },
+          "userId": {
+            "S.$": "$.userId"
+          },
+          "telegramChatId": {
+            "N.$": "States.Format('{}', $.chatId)"
+          },
+          "strategyName": {
+            "S.$": "$.synthesisResult.strategy.strategyName"
+          },
+          "strategyConfig": {
+            "S.$": "States.JsonToString($.synthesisResult.strategy)"
+          },
+          "status": {
+            "S": "active"
+          },
+          "createdAt": {
+            "S.$": "$$.State.EnteredTime"
+          },
+          "updatedAt": {
+            "S.$": "$$.State.EnteredTime"
+          },
+          "totalTrades": {
+            "N": "0"
+          },
+          "winningTrades": {
+            "N": "0"
+          },
+          "totalPnl": {
+            "S": "0"
+          },
+          "entityType": {
+            "S": "Agent"
+          }
+        }
+      },
+      "ResultPath": "$.createResult",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.TaskFailed"],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "AgentCreationFailed"
+        }
+      ],
+      "Next": "SendConfirmationNotification"
+    },
+    "AgentCreationFailed": {
+      "Type": "Fail",
+      "Error": "AgentCreationError",
+      "Cause": "Failed to create agent in DynamoDB"
+    },
+    "SendConfirmationNotification": {
+      "Type": "Task",
+      "Resource": "${StrategySynthesizerArn}",
+      "Parameters": {
+        "action": "notify",
+        "chatId.$": "$.chatId",
+        "agentId.$": "$.agentId",
+        "strategyName.$": "$.synthesisResult.strategy.strategyName",
+        "message": "Agent deployed successfully! It will start analyzing markets in the next cycle."
+      },
+      "ResultPath": "$.notificationResult",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.notificationError",
+          "Next": "AgentCreatedWithNotificationFailure"
+        }
+      ],
+      "Next": "AgentCreatedSuccessfully"
+    },
+    "AgentCreatedWithNotificationFailure": {
+      "Type": "Pass",
+      "Result": {
+        "status": "success_with_warning",
+        "message": "Agent created but notification failed"
+      },
+      "ResultPath": "$.finalResult",
+      "End": true
+    },
+    "AgentCreatedSuccessfully": {
+      "Type": "Pass",
+      "Parameters": {
+        "status": "success",
+        "message": "Agent created and deployed successfully",
+        "agentId.$": "$.agentId",
+        "strategyName.$": "$.synthesisResult.strategy.strategyName"
+      },
+      "ResultPath": "$.finalResult",
+      "End": true
+    }
+  }
+}

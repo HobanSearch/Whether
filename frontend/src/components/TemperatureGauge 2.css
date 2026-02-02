@@ -1,0 +1,110 @@
+.temperature-gauge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.gauge-label {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gauge-value-container {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-xs);
+}
+
+.gauge-value {
+    font-weight: 700;
+    line-height: 1;
+}
+
+.gauge-sm .gauge-value {
+    font-size: var(--font-size-lg);
+}
+
+.gauge-md .gauge-value {
+    font-size: var(--font-size-xl);
+}
+
+.gauge-lg .gauge-value {
+    font-size: var(--font-size-huge);
+}
+
+.gauge-track {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    padding-top: 8px;
+}
+
+.gauge-track-bg {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+        to right,
+        var(--color-primary-cyan),
+        #4DB8FF 25%,
+        var(--color-success-matrix) 50%,
+        var(--color-warning) 75%,
+        var(--color-secondary-orange)
+    );
+    border-radius: 2px;
+    opacity: 0.3;
+}
+
+.gauge-indicator {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.gauge-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.gauge-threshold {
+    position: absolute;
+    top: 2px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.threshold-line {
+    width: 2px;
+    height: 12px;
+    background: var(--color-text-secondary);
+}
+
+.threshold-label {
+    position: absolute;
+    top: 100%;
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+.gauge-range {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+
+.range-min,
+.range-max {
+    font-size: 10px;
+}

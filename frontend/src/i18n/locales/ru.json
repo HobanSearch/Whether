@@ -1,0 +1,558 @@
+{
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "retry": "Повторить",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "save": "Сохранить",
+    "close": "Закрыть",
+    "back": "Назад",
+    "next": "Далее",
+    "viewAll": "Показать все",
+    "noResults": "Ничего не найдено",
+    "connectWallet": "Подключить кошелек",
+    "disconnect": "Отключить",
+    "copy": "Копировать",
+    "copied": "Скопировано!",
+    "share": "Поделиться",
+    "settings": "Настройки",
+    "language": "Язык",
+    "yes": "Да",
+    "no": "Нет",
+    "or": "или",
+    "and": "и",
+    "of": "из",
+    "all": "Все",
+    "today": "Сегодня",
+    "tomorrow": "Завтра",
+    "points": "очков",
+    "ton": "TON",
+    "sunshine": "Солнце",
+    "clouds": "Облака",
+    "search": "Поиск"
+  },
+  "settings": {
+    "language": "Язык",
+    "temperatureUnit": "Температура"
+  },
+  "nav": {
+    "home": "Главная",
+    "markets": "Рынки",
+    "forecast": "Прогноз",
+    "portfolio": "Мои прогнозы",
+    "earn": "Заработок",
+    "profile": "Профиль",
+    "squads": "Команды",
+    "achievements": "Достижения",
+    "leaderboard": "Рейтинг"
+  },
+  "home": {
+    "title": "Whether",
+    "subtitle": "Предсказывай погоду, собирай награды",
+    "featuredMarkets": "Грозовой фронт",
+    "hotMarkets": "Накаляется",
+    "trendingNow": "В тренде",
+    "quickPicks": "Быстрый выбор",
+    "quickPicksSubtitle": "Шанс на прибыль за 5 минут",
+    "viewAllMarkets": "Все рынки",
+    "welcomeBack": "С возвращением",
+    "newUser": "Впервые в Whether?",
+    "getStarted": "Начать",
+    "dailyReward": "Ежедневная награда доступна!",
+    "claimNow": "Получить",
+    "rainOrShine": "Награды ждут в любую погоду"
+  },
+  "markets": {
+    "title": "Рынки",
+    "subtitle": "Поддержи свой прогноз",
+    "activeMarkets": "Активные рынки",
+    "upcomingMarkets": "Скоро",
+    "closedMarkets": "Завершенные",
+    "allMarkets": "Все рынки",
+    "filterByLocation": "Фильтр по локации",
+    "filterByType": "Фильтр по типу",
+    "filterByStatus": "Фильтр по статусу",
+    "filterByProductLine": "Фильтр по категории",
+    "noMarkets": "Нет доступных рынков",
+    "searchPlaceholder": "Поиск рынков...",
+    "marketEnds": "Закрывается",
+    "settlementDate": "Дата расчета",
+    "poolSize": "Размер пула",
+    "volume": "Размер пула",
+    "liquidity": "Ликвидность",
+    "forecasters": "Прогнозисты",
+    "participants": "Прогнозисты",
+    "stormFront": "Грозовой фронт",
+    "heatingUp": "Накаляется",
+    "status": {
+      "active": "Активный",
+      "pending": "Скоро",
+      "settled": "Завершен",
+      "cancelled": "Отменен",
+      "disputed": "На проверке",
+      "expired": "Закрыт",
+      "resolving": "Расчет"
+    },
+    "types": {
+      "temperature_high": "Максимальная температура",
+      "temperature_low": "Минимальная температура",
+      "precipitation": "Осадки",
+      "visibility": "Видимость",
+      "wind_speed": "Скорость ветра"
+    },
+    "marketTypes": {
+      "binary": "Да/Нет",
+      "bracket": "Диапазон",
+      "scalar": "Шкала"
+    },
+    "comparison": {
+      "above": "Выше",
+      "below": "Ниже",
+      "between": "Между"
+    }
+  },
+  "productLines": {
+    "all": "Все категории",
+    "airport": "Авиа-прогноз",
+    "urban": "Городская жара",
+    "precipitation": "Проверка дождя",
+    "extreme": "Охотники за штормами",
+    "energy": "Энергосеть",
+    "agricultural": "Урожайный прогноз"
+  },
+  "market": {
+    "backYourPrediction": "Поддержи прогноз",
+    "takePosition": "Занять позицию",
+    "placeYourBet": "Поддержи прогноз",
+    "predictYes": "Солнце",
+    "predictNo": "Облака",
+    "amount": "Сумма",
+    "estimatedReturn": "Потенциальный доход",
+    "potentialWin": "Если угадаете",
+    "priceImpact": "Влияние на цену",
+    "slippage": "Проскальзывание",
+    "currentOdds": "Текущие шансы",
+    "yourPosition": "Ваш прогноз",
+    "noPosition": "Пока нет позиции",
+    "placeBet": "Поддержать",
+    "claimWinnings": "Получить награду",
+    "claimRefund": "Запросить возврат",
+    "marketDetails": "Детали рынка",
+    "condition": "Условие",
+    "threshold": "Порог",
+    "location": "Локация",
+    "settlementSource": "Источник данных",
+    "oracleData": "Данные оракула",
+    "priceHistory": "История цен",
+    "recentTrades": "Последняя активность",
+    "outcome": "Исход",
+    "result": "Результат",
+    "won": "Верно!",
+    "lost": "Неверно",
+    "pending": "Ожидание",
+    "notSettled": "Еще не завершен",
+    "forecastPeek": "Быстрый прогноз",
+    "aiConfidence": "Уверенность ИИ",
+    "warnings": {
+      "highSlippage": "Высокое проскальзывание",
+      "lowLiquidity": "Низкая ликвидность",
+      "marketClosingSoon": "Скоро закроется!"
+    }
+  },
+  "trading": {
+    "buy": "Поддержать",
+    "sell": "Продать",
+    "trade": "Торговать",
+    "orderPlaced": "Позиция открыта",
+    "orderFailed": "Ошибка транзакции",
+    "confirmTrade": "Подтвердить позицию",
+    "reviewOrder": "Проверить прогноз",
+    "side": "Сторона",
+    "price": "Цена",
+    "quantity": "Количество",
+    "total": "Итого",
+    "fee": "Комиссия",
+    "gasFee": "Газ",
+    "minReceived": "Минимум получите",
+    "maxPaid": "Максимум заплатите",
+    "transactionPending": "Обработка...",
+    "transactionConfirmed": "Подтверждено!",
+    "transactionFailed": "Транзакция не удалась",
+    "viewOnExplorer": "Посмотреть в обозревателе",
+    "insufficientBalance": "Недостаточно средств",
+    "enterAmount": "Введите сумму",
+    "connectToTrade": "Подключите кошелек для прогноза"
+  },
+  "portfolio": {
+    "title": "Мои прогнозы",
+    "subtitle": "Ваши позиции и история",
+    "totalValue": "Общая стоимость",
+    "unrealizedPnL": "Нереализованный P&L",
+    "realizedPnL": "Реализованный P&L",
+    "openPositions": "Открытые прогнозы",
+    "closedPositions": "Закрытые прогнозы",
+    "claimablePositions": "К получению",
+    "allPositions": "Все прогнозы",
+    "noPositions": "Пока нет прогнозов",
+    "startTrading": "Начать прогнозировать",
+    "position": "Позиция",
+    "entry": "Вход",
+    "current": "Текущая",
+    "pnl": "P&L",
+    "claim": "Получить",
+    "claimed": "Получено",
+    "refund": "Возврат",
+    "history": "История",
+    "transactionHistory": "История транзакций"
+  },
+  "forecast": {
+    "title": "ИИ Прогноз",
+    "subtitle": "ИИ прогнозы погоды",
+    "selectLocation": "Выберите локацию",
+    "selectDate": "Выберите дату",
+    "temperature": "Температура",
+    "high": "Макс",
+    "low": "Мин",
+    "precipitation": "Осадки",
+    "humidity": "Влажность",
+    "wind": "Ветер",
+    "visibility": "Видимость",
+    "conditions": "Условия",
+    "confidence": "Уверенность",
+    "probabilityDistribution": "Распределение вероятностей",
+    "percentile": "Перцентиль",
+    "modelWeights": "Веса моделей",
+    "updatedAt": "Обновлено",
+    "p10": "10-й перцентиль",
+    "p50": "Медиана",
+    "p90": "90-й перцентиль",
+    "exceedanceProb": "Вероятность превышения",
+    "units": {
+      "celsius": "°C",
+      "fahrenheit": "°F",
+      "mm": "мм",
+      "inches": "дюйм",
+      "kmh": "км/ч",
+      "mph": "миль/ч",
+      "km": "км",
+      "miles": "миль"
+    }
+  },
+  "profile": {
+    "title": "Профиль",
+    "editProfile": "Редактировать профиль",
+    "myStats": "Моя статистика",
+    "totalForecasts": "Всего прогнозов",
+    "totalBets": "Всего прогнозов",
+    "totalWins": "Верных предсказаний",
+    "winRate": "Точность",
+    "totalVolume": "Общий объем",
+    "accuracy": "Точность предсказаний",
+    "tier": "Уровень",
+    "tiers": {
+      "1": "Наблюдатель",
+      "2": "Охотник за штормами",
+      "3": "Оракул",
+      "4": "Член совета"
+    },
+    "referral": {
+      "title": "Реферальная программа",
+      "yourCode": "Ваш реферальный код",
+      "applyCode": "Применить реферальный код",
+      "applyDescription": "Введите реферальный код друга для получения бонусных наград.",
+      "enterCode": "Введите реферальный код...",
+      "apply": "Применить",
+      "applied": "Реферал применен!",
+      "invalidCode": "Неверный реферальный код",
+      "earnings": "Реферальный доход",
+      "inviteFriends": "Пригласить друзей",
+      "shareLink": "Поделиться ссылкой"
+    },
+    "squad": {
+      "title": "Команда",
+      "yourSquad": "Ваша команда",
+      "joinSquad": "Вступить в команду",
+      "leaveSquad": "Покинуть команду",
+      "enterCode": "Введите код команды...",
+      "join": "Вступить",
+      "browse": "Все команды",
+      "rank": "Ранг",
+      "members": "Участники"
+    },
+    "wallet": {
+      "title": "Кошелек",
+      "connected": "Подключен",
+      "notConnected": "Не подключен",
+      "address": "Адрес",
+      "balance": "Баланс"
+    },
+    "links": {
+      "viewPositions": "Мои прогнозы",
+      "browseMarkets": "Обзор рынков",
+      "achievements": "Достижения",
+      "leaderboard": "Рейтинг"
+    },
+    "tradingRecord": "История торговли",
+    "recentTrades": "Последние сделки",
+    "stats": {
+      "totalTrades": "Сделки",
+      "wins": "Победы",
+      "losses": "Проигрыши",
+      "winRate": "Процент побед",
+      "totalVolume": "Объем",
+      "pending": "Ожидание"
+    },
+    "telegram": {
+      "linkAccount": "Привязать Telegram",
+      "linkDescription": "Откройте приложение в Telegram для разблокировки достижений, очков и рейтинга."
+    }
+  },
+  "achievements": {
+    "title": "Достижения",
+    "subtitle": "Отслеживайте погодную мудрость",
+    "recentAchievements": "Недавние достижения",
+    "unlocked": "Разблокировано",
+    "locked": "Заблокировано",
+    "progress": "Прогресс",
+    "reward": "Награда",
+    "unlockedOn": "Разблокировано",
+    "category": "Категория",
+    "categories": {
+      "all": "Все",
+      "betting": "Прогнозы",
+      "streaks": "Серии",
+      "social": "Социальные",
+      "special": "Особые"
+    },
+    "rarity": {
+      "common": "Обычное",
+      "uncommon": "Необычное",
+      "rare": "Редкое",
+      "epic": "Эпическое",
+      "legendary": "Легендарное"
+    },
+    "stats": {
+      "total": "Всего достижений",
+      "completion": "Выполнение",
+      "pointsEarned": "Очков за достижения"
+    },
+    "noMatches": "Нет достижений по выбранным фильтрам",
+    "list": {
+      "first_bet": {
+        "name": "Первые шаги",
+        "description": "Сделайте первый прогноз"
+      },
+      "ten_bets": {
+        "name": "Начало пути",
+        "description": "Сделайте 10 прогнозов"
+      },
+      "fifty_bets": {
+        "name": "Наблюдатель погоды",
+        "description": "Сделайте 50 прогнозов"
+      },
+      "hundred_bets": {
+        "name": "Следопыт штормов",
+        "description": "Сделайте 100 прогнозов"
+      },
+      "streak_3": {
+        "name": "Горячая серия",
+        "description": "Угадайте 3 раза подряд"
+      },
+      "streak_5": {
+        "name": "В огне",
+        "description": "Угадайте 5 раз подряд"
+      },
+      "streak_10": {
+        "name": "Неудержимый",
+        "description": "Угадайте 10 раз подряд"
+      },
+      "wins_10": {
+        "name": "Ясное небо",
+        "description": "10 верных предсказаний"
+      },
+      "wins_50": {
+        "name": "Погодный оракул",
+        "description": "50 верных предсказаний"
+      },
+      "wins_100": {
+        "name": "Легендарный прогнозист",
+        "description": "100 верных предсказаний"
+      },
+      "referral_1": {
+        "name": "Связной",
+        "description": "Пригласите первого друга"
+      },
+      "referral_5": {
+        "name": "Инфлюенсер",
+        "description": "Пригласите 5 друзей"
+      },
+      "early_adopter": {
+        "name": "Первопроходец",
+        "description": "Присоединитесь во время бета-теста"
+      }
+    }
+  },
+  "leaderboard": {
+    "title": "Рейтинг",
+    "subtitle": "Лучшие прогнозисты",
+    "points": "Очки",
+    "streaks": "Серии",
+    "timeframes": {
+      "all": "Все время",
+      "weekly": "Неделя",
+      "monthly": "Месяц"
+    },
+    "yourRank": "Ваш ранг",
+    "noEntries": "Пока нет записей. Будьте первым!",
+    "rank": "Ранг"
+  },
+  "streaks": {
+    "title": "Победная серия",
+    "currentStreak": "Текущая серия",
+    "bestStreak": "Лучшая серия",
+    "multiplier": "Множитель",
+    "nextMilestone": "Следующая цель",
+    "streakBonus": "Бонус серии",
+    "dayStreak": "дней подряд",
+    "daysStreak": "дней подряд",
+    "keepItUp": "Так держать!",
+    "inactive": "Неактивно",
+    "milestones": {
+      "3": "Горячая серия",
+      "5": "В огне",
+      "10": "Неудержимый",
+      "15": "Легендарный",
+      "20": "Мифический"
+    }
+  },
+  "points": {
+    "title": "Очки",
+    "balance": "Баланс",
+    "totalEarned": "Всего заработано",
+    "dailyLogin": "Ежедневный вход",
+    "claimDaily": "Получить ежедневный бонус",
+    "claimed": "Получено!",
+    "claiming": "Получение...",
+    "loginStreak": "Серия входов",
+    "bestLoginStreak": "Лучшая серия входов",
+    "tierBonus": "Бонус уровня",
+    "breakdown": {
+      "title": "Заработанные очки",
+      "bets": "За прогнозы",
+      "wins": "За победы",
+      "streaks": "Бонусы серий",
+      "referrals": "Рефералы",
+      "achievements": "Достижения",
+      "daily": "Ежедневный вход"
+    },
+    "sources": {
+      "bet_placed": "Прогноз сделан",
+      "bet_won": "Верное предсказание",
+      "streak_bonus": "Бонус серии",
+      "daily_login": "Ежедневный вход",
+      "referral_signup": "Регистрация реферала",
+      "referral_bet": "Прогноз реферала",
+      "achievement_unlock": "Достижение разблокировано",
+      "squad_bonus": "Бонус команды"
+    },
+    "history": {
+      "title": "История очков",
+      "noHistory": "Пока нет истории очков"
+    },
+    "dailyReward": {
+      "title": "Ежедневная награда!",
+      "base": "Базовая",
+      "streakBonus": "Бонус серии"
+    }
+  },
+  "squads": {
+    "title": "Команды",
+    "subtitle": "Соревнуйтесь с вашим регионом",
+    "createSquad": "Создать команду",
+    "joinSquad": "Вступить в команду",
+    "joinDescription": "Присоединяйтесь к команде для соревнования с другими прогнозистами вашего региона.",
+    "yourSquad": "Ваша команда",
+    "leaveSquad": "Покинуть команду",
+    "enterCode": "Введите код команды...",
+    "join": "Вступить",
+    "browseAll": "Все команды",
+    "mySquad": "Моя команда",
+    "topSquads": "Топ команд",
+    "members": "Участники",
+    "totalVolume": "Общий объем",
+    "weeklyRank": "Недельный ранг",
+    "allTimeRank": "Ранг за все время",
+    "region": "Регион",
+    "code": "Код",
+    "searchSquads": "Поиск команд...",
+    "noSquads": "Команды не найдены"
+  },
+  "earn": {
+    "title": "Заработок",
+    "subtitle": "Увеличьте награды",
+    "dailyTasks": "Ежедневные задания",
+    "referralProgram": "Реферальная программа",
+    "stakingRewards": "Награды за стейкинг",
+    "achievements": "Достижения"
+  },
+  "errors": {
+    "generic": "Что-то пошло не так",
+    "networkError": "Ошибка сети. Попробуйте снова.",
+    "walletNotConnected": "Подключите кошелек",
+    "insufficientFunds": "Недостаточно средств",
+    "transactionRejected": "Транзакция отклонена",
+    "marketNotFound": "Рынок не найден",
+    "userNotFound": "Пользователь не найден",
+    "invalidInput": "Неверный ввод",
+    "sessionExpired": "Сессия истекла. Обновите страницу.",
+    "rateLimited": "Слишком много запросов. Подождите."
+  },
+  "success": {
+    "forecastPlaced": "Прогноз успешно сделан!",
+    "betPlaced": "Прогноз успешно сделан!",
+    "claimSuccess": "Успешно получено!",
+    "copied": "Скопировано!",
+    "saved": "Изменения сохранены!",
+    "referralApplied": "Реферальный код применен!",
+    "squadJoined": "Вы вступили в команду!"
+  },
+  "time": {
+    "justNow": "Только что",
+    "minutesAgo": "{{count}} минуту назад",
+    "minutesAgo_plural": "{{count}} минут назад",
+    "hoursAgo": "{{count}} час назад",
+    "hoursAgo_plural": "{{count}} часов назад",
+    "daysAgo": "{{count}} день назад",
+    "daysAgo_plural": "{{count}} дней назад",
+    "endsIn": "Закроется через",
+    "startsIn": "Откроется через",
+    "endedAgo": "Закрылся {{time}} назад"
+  },
+  "locations": {
+    "KNYC": "Нью-Йорк",
+    "KORD": "Чикаго",
+    "KMIA": "Майами",
+    "KAUS": "Остин"
+  },
+  "weather": {
+    "conditions": {
+      "clear": "Ясно",
+      "cloudy": "Облачно",
+      "partly_cloudy": "Переменная облачность",
+      "rain": "Дождь",
+      "heavy_rain": "Сильный дождь",
+      "snow": "Снег",
+      "thunderstorm": "Гроза",
+      "fog": "Туман",
+      "windy": "Ветрено"
+    }
+  },
+  "cta": {
+    "makeItRain": "Собери награды",
+    "rainOrShine": "В любую погоду",
+    "backYourForecast": "Поддержи прогноз",
+    "seeTheFuture": "Увидь будущее",
+    "weatherTheStorm": "Переживи шторм"
+  }
+}

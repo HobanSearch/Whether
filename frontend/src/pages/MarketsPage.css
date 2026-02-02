@@ -1,0 +1,213 @@
+.markets-page {
+    padding-bottom: var(--spacing-xl);
+}
+
+.page-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.page-subtitle {
+    font-size: var(--font-size-sm);
+}
+
+/* Featured Section */
+.featured-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Hot Markets Section */
+.hot-markets-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Product Lines Section */
+.product-lines-section {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Filters Section */
+.filters-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.compact-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.filter-group.search-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-label {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-options {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.filter-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.filter-btn.active {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--color-primary-cyan);
+    color: var(--color-primary-cyan);
+}
+
+.filter-select {
+    min-width: 120px;
+    padding: var(--spacing-xs) var(--spacing-md);
+    padding-right: 32px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--color-primary-cyan);
+}
+
+.filter-input {
+    width: 100%;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+    transition: border-color 0.2s;
+}
+
+.filter-input::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: var(--color-primary-cyan);
+}
+
+/* Markets Section */
+.markets-section {
+    min-height: 200px;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.results-count {
+    font-size: var(--font-size-sm);
+}
+
+.markets-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+/* Loading */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl);
+}
+
+/* Empty & Error States */
+.error-state,
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.8;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .compact-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group.search-group {
+        min-width: auto;
+    }
+
+    .filter-options {
+        flex-wrap: wrap;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+}
+
+/* Tablet and up - two column grid */
+@media (min-width: 768px) {
+    .markets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop - can show more */
+@media (min-width: 1024px) {
+    .compact-filters {
+        flex-wrap: nowrap;
+    }
+}

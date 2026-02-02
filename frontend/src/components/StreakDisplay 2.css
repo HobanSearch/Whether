@@ -1,0 +1,279 @@
+.streak-display {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.streak-display.active {
+    border-color: rgba(255, 140, 0, 0.3);
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 60, 0, 0.05));
+}
+
+.streak-display.inactive {
+    opacity: 0.7;
+}
+
+/* Level variations */
+.streak-display.legendary {
+    border-color: rgba(249, 115, 22, 0.5);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.2);
+}
+
+.streak-display.epic {
+    border-color: rgba(139, 92, 246, 0.4);
+}
+
+.streak-display.rare {
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Size variations */
+.streak-display.sm {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+}
+
+.streak-display.lg {
+    padding: var(--spacing-lg);
+}
+
+/* Flame icon */
+.streak-flame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 140, 0, 0.15);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.streak-display.sm .streak-flame {
+    width: 36px;
+    height: 36px;
+}
+
+.flame-icon {
+    font-size: 28px;
+    animation: flame-pulse 1.5s ease-in-out infinite;
+}
+
+.flame-icon.faded {
+    opacity: 0.5;
+    animation: none;
+}
+
+.streak-display.sm .flame-icon {
+    font-size: 20px;
+}
+
+@keyframes flame-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Streak info */
+.streak-info {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex: 1;
+}
+
+.streak-count {
+    display: flex;
+    flex-direction: column;
+}
+
+.count-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1;
+}
+
+.streak-display.sm .count-value {
+    font-size: var(--font-size-lg);
+}
+
+.count-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-hint);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Multiplier */
+.streak-multiplier {
+    display: flex;
+    flex-direction: column;
+    padding-left: var(--spacing-md);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.multiplier-value {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: #F59E0B;
+    line-height: 1;
+}
+
+.multiplier-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-hint);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Milestone */
+.streak-milestone {
+    position: absolute;
+    bottom: var(--spacing-xs);
+    right: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-xs);
+    font-size: 10px;
+}
+
+.milestone-label {
+    color: var(--color-text-hint);
+}
+
+.milestone-value {
+    color: var(--color-text-secondary);
+}
+
+/* Best streak */
+.streak-best {
+    display: flex;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+}
+
+.best-label {
+    color: var(--color-text-hint);
+}
+
+.best-value {
+    color: var(--color-text-secondary);
+}
+
+/* Streak Progress Bar */
+.streak-progress-bar {
+    width: 100%;
+    padding: var(--spacing-sm) 0;
+}
+
+.progress-track {
+    display: flex;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: visible;
+    position: relative;
+}
+
+.progress-segment {
+    flex: 1;
+    position: relative;
+}
+
+.segment-fill {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #F59E0B, #EF4444);
+    border-radius: 4px;
+    transform-origin: left;
+    transform: scaleX(calc(var(--progress) / 100));
+    transition: transform 0.3s ease-out;
+}
+
+.progress-segment.complete .segment-fill {
+    transform: scaleX(1);
+}
+
+.milestone-marker {
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.milestone-marker.complete {
+    background: #F59E0B;
+    border-color: #F59E0B;
+}
+
+.marker-value {
+    position: absolute;
+    top: 16px;
+    font-size: 10px;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+.marker-bonus {
+    position: absolute;
+    top: 28px;
+    font-size: 9px;
+    color: var(--color-text-hint);
+    white-space: nowrap;
+}
+
+/* Streak Badge (compact) */
+.streak-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(255, 60, 0, 0.1));
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    border-radius: 20px;
+}
+
+.streak-badge.sm {
+    padding: 2px 6px;
+}
+
+.badge-flame {
+    font-size: 12px;
+}
+
+.streak-badge.sm .badge-flame {
+    font-size: 10px;
+}
+
+.badge-count {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: #F59E0B;
+}
+
+.streak-badge.sm .badge-count {
+    font-size: var(--font-size-xs);
+}
+
+.badge-multiplier {
+    font-size: 10px;
+    color: var(--color-text-hint);
+    padding-left: 4px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}

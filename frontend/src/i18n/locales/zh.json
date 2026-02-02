@@ -1,0 +1,558 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "retry": "重试",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "viewAll": "查看全部",
+    "noResults": "未找到结果",
+    "connectWallet": "连接钱包",
+    "disconnect": "断开连接",
+    "copy": "复制",
+    "copied": "已复制！",
+    "share": "分享",
+    "settings": "设置",
+    "language": "语言",
+    "yes": "是",
+    "no": "否",
+    "or": "或",
+    "and": "和",
+    "of": "/",
+    "all": "全部",
+    "today": "今天",
+    "tomorrow": "明天",
+    "points": "积分",
+    "ton": "TON",
+    "sunshine": "晴天",
+    "clouds": "阴天",
+    "search": "搜索"
+  },
+  "settings": {
+    "language": "语言",
+    "temperatureUnit": "温度单位"
+  },
+  "nav": {
+    "home": "首页",
+    "markets": "市场",
+    "forecast": "预报",
+    "portfolio": "我的预测",
+    "earn": "赚取",
+    "profile": "个人资料",
+    "squads": "战队",
+    "achievements": "成就",
+    "leaderboard": "排行榜"
+  },
+  "home": {
+    "title": "Whether",
+    "subtitle": "预测天气，满载而归",
+    "featuredMarkets": "风暴前线",
+    "hotMarkets": "热度飙升",
+    "trendingNow": "当前趋势",
+    "quickPicks": "快速预测",
+    "quickPicksSubtitle": "5分钟内获利机会",
+    "viewAllMarkets": "查看所有市场",
+    "welcomeBack": "欢迎回来",
+    "newUser": "新用户？",
+    "getStarted": "开始使用",
+    "dailyReward": "每日奖励可领取！",
+    "claimNow": "立即领取",
+    "rainOrShine": "风雨无阻，奖励等待"
+  },
+  "markets": {
+    "title": "市场",
+    "subtitle": "支持你的天气预测",
+    "activeMarkets": "进行中",
+    "upcomingMarkets": "即将开始",
+    "closedMarkets": "已结算",
+    "allMarkets": "所有市场",
+    "filterByLocation": "按地点筛选",
+    "filterByType": "按类型筛选",
+    "filterByStatus": "按状态筛选",
+    "filterByProductLine": "按类别筛选",
+    "noMarkets": "暂无可用市场",
+    "searchPlaceholder": "搜索市场...",
+    "marketEnds": "截止于",
+    "settlementDate": "结算日期",
+    "poolSize": "奖池规模",
+    "volume": "奖池规模",
+    "liquidity": "流动性",
+    "forecasters": "预测者",
+    "participants": "预测者",
+    "stormFront": "风暴前线",
+    "heatingUp": "热度飙升",
+    "status": {
+      "active": "进行中",
+      "pending": "即将开始",
+      "settled": "已结算",
+      "cancelled": "已取消",
+      "disputed": "审核中",
+      "expired": "已截止",
+      "resolving": "结算中"
+    },
+    "types": {
+      "temperature_high": "最高温度",
+      "temperature_low": "最低温度",
+      "precipitation": "降水量",
+      "visibility": "能见度",
+      "wind_speed": "风速"
+    },
+    "marketTypes": {
+      "binary": "是/否",
+      "bracket": "区间",
+      "scalar": "范围"
+    },
+    "comparison": {
+      "above": "高于",
+      "below": "低于",
+      "between": "介于"
+    }
+  },
+  "productLines": {
+    "all": "全部类别",
+    "airport": "航班监控",
+    "urban": "城市热浪",
+    "precipitation": "雨量预测",
+    "extreme": "风暴追踪",
+    "energy": "电网预警",
+    "agricultural": "农业展望"
+  },
+  "market": {
+    "backYourPrediction": "支持你的预测",
+    "takePosition": "参与预测",
+    "placeYourBet": "支持你的预测",
+    "predictYes": "晴天",
+    "predictNo": "阴天",
+    "amount": "金额",
+    "estimatedReturn": "预期收益",
+    "potentialWin": "如果正确",
+    "priceImpact": "价格影响",
+    "slippage": "滑点",
+    "currentOdds": "当前赔率",
+    "yourPosition": "你的预测",
+    "noPosition": "暂无持仓",
+    "placeBet": "支持",
+    "claimWinnings": "领取奖励",
+    "claimRefund": "申请退款",
+    "marketDetails": "市场详情",
+    "condition": "条件",
+    "threshold": "阈值",
+    "location": "地点",
+    "settlementSource": "数据来源",
+    "oracleData": "预言机数据",
+    "priceHistory": "价格历史",
+    "recentTrades": "最近活动",
+    "outcome": "结果",
+    "result": "结果",
+    "won": "正确！",
+    "lost": "错误",
+    "pending": "待定",
+    "notSettled": "尚未结算",
+    "forecastPeek": "快速预览",
+    "aiConfidence": "AI置信度",
+    "warnings": {
+      "highSlippage": "滑点过高警告",
+      "lowLiquidity": "流动性不足",
+      "marketClosingSoon": "即将截止！"
+    }
+  },
+  "trading": {
+    "buy": "支持",
+    "sell": "卖出",
+    "trade": "交易",
+    "orderPlaced": "持仓已开",
+    "orderFailed": "交易失败",
+    "confirmTrade": "确认持仓",
+    "reviewOrder": "审核预测",
+    "side": "方向",
+    "price": "价格",
+    "quantity": "数量",
+    "total": "总计",
+    "fee": "手续费",
+    "gasFee": "Gas费用",
+    "minReceived": "最少收到",
+    "maxPaid": "最多支付",
+    "transactionPending": "处理中...",
+    "transactionConfirmed": "已确认！",
+    "transactionFailed": "交易失败",
+    "viewOnExplorer": "在浏览器中查看",
+    "insufficientBalance": "余额不足",
+    "enterAmount": "输入金额",
+    "connectToTrade": "连接钱包以预测"
+  },
+  "portfolio": {
+    "title": "我的预测",
+    "subtitle": "您的仓位和历史",
+    "totalValue": "总价值",
+    "unrealizedPnL": "未实现盈亏",
+    "realizedPnL": "已实现盈亏",
+    "openPositions": "进行中的预测",
+    "closedPositions": "已结算的预测",
+    "claimablePositions": "可领取",
+    "allPositions": "所有预测",
+    "noPositions": "暂无预测",
+    "startTrading": "开始预测",
+    "position": "仓位",
+    "entry": "入场价",
+    "current": "当前价",
+    "pnl": "盈亏",
+    "claim": "领取",
+    "claimed": "已领取",
+    "refund": "退款",
+    "history": "历史",
+    "transactionHistory": "交易历史"
+  },
+  "forecast": {
+    "title": "AI预报",
+    "subtitle": "AI天气预测",
+    "selectLocation": "选择地点",
+    "selectDate": "选择日期",
+    "temperature": "温度",
+    "high": "最高",
+    "low": "最低",
+    "precipitation": "降水",
+    "humidity": "湿度",
+    "wind": "风",
+    "visibility": "能见度",
+    "conditions": "天气状况",
+    "confidence": "置信度",
+    "probabilityDistribution": "概率分布",
+    "percentile": "百分位",
+    "modelWeights": "模型权重",
+    "updatedAt": "更新于",
+    "p10": "第10百分位",
+    "p50": "中位数",
+    "p90": "第90百分位",
+    "exceedanceProb": "超过阈值概率",
+    "units": {
+      "celsius": "°C",
+      "fahrenheit": "°F",
+      "mm": "毫米",
+      "inches": "英寸",
+      "kmh": "公里/时",
+      "mph": "英里/时",
+      "km": "公里",
+      "miles": "英里"
+    }
+  },
+  "profile": {
+    "title": "个人资料",
+    "editProfile": "编辑资料",
+    "myStats": "我的统计",
+    "totalForecasts": "总预测数",
+    "totalBets": "总预测数",
+    "totalWins": "正确预测",
+    "winRate": "准确率",
+    "totalVolume": "总交易量",
+    "accuracy": "预测准确率",
+    "tier": "等级",
+    "tiers": {
+      "1": "观察者",
+      "2": "风暴追逐者",
+      "3": "预言家",
+      "4": "议会成员"
+    },
+    "referral": {
+      "title": "推荐计划",
+      "yourCode": "您的推荐码",
+      "applyCode": "使用推荐码",
+      "applyDescription": "输入好友的推荐码获取额外奖励。",
+      "enterCode": "输入推荐码...",
+      "apply": "应用",
+      "applied": "推荐码已应用！",
+      "invalidCode": "无效的推荐码",
+      "earnings": "推荐收益",
+      "inviteFriends": "邀请好友",
+      "shareLink": "分享链接"
+    },
+    "squad": {
+      "title": "战队",
+      "yourSquad": "您的战队",
+      "joinSquad": "加入战队",
+      "leaveSquad": "退出战队",
+      "enterCode": "输入战队代码...",
+      "join": "加入",
+      "browse": "浏览所有战队",
+      "rank": "排名",
+      "members": "成员"
+    },
+    "wallet": {
+      "title": "钱包",
+      "connected": "已连接",
+      "notConnected": "未连接",
+      "address": "地址",
+      "balance": "余额"
+    },
+    "links": {
+      "viewPositions": "查看预测",
+      "browseMarkets": "浏览市场",
+      "achievements": "成就",
+      "leaderboard": "排行榜"
+    },
+    "tradingRecord": "交易记录",
+    "recentTrades": "最近交易",
+    "stats": {
+      "totalTrades": "交易数",
+      "wins": "胜",
+      "losses": "负",
+      "winRate": "胜率",
+      "totalVolume": "交易量",
+      "pending": "待定"
+    },
+    "telegram": {
+      "linkAccount": "绑定 Telegram",
+      "linkDescription": "在 Telegram 中打开此应用，解锁成就、积分和排行榜功能。"
+    }
+  },
+  "achievements": {
+    "title": "成就",
+    "subtitle": "追踪您的气象智慧",
+    "recentAchievements": "最近成就",
+    "unlocked": "已解锁",
+    "locked": "未解锁",
+    "progress": "进度",
+    "reward": "奖励",
+    "unlockedOn": "解锁于",
+    "category": "类别",
+    "categories": {
+      "all": "全部",
+      "betting": "预测",
+      "streaks": "连胜",
+      "social": "社交",
+      "special": "特殊"
+    },
+    "rarity": {
+      "common": "普通",
+      "uncommon": "稀有",
+      "rare": "精良",
+      "epic": "史诗",
+      "legendary": "传说"
+    },
+    "stats": {
+      "total": "总成就数",
+      "completion": "完成度",
+      "pointsEarned": "成就积分"
+    },
+    "noMatches": "没有符合筛选条件的成就",
+    "list": {
+      "first_bet": {
+        "name": "初次尝试",
+        "description": "完成第一次预测"
+      },
+      "ten_bets": {
+        "name": "入门玩家",
+        "description": "完成10次预测"
+      },
+      "fifty_bets": {
+        "name": "天气观察员",
+        "description": "完成50次预测"
+      },
+      "hundred_bets": {
+        "name": "风暴追踪者",
+        "description": "完成100次预测"
+      },
+      "streak_3": {
+        "name": "小有成就",
+        "description": "连续正确3次"
+      },
+      "streak_5": {
+        "name": "势如破竹",
+        "description": "连续正确5次"
+      },
+      "streak_10": {
+        "name": "势不可挡",
+        "description": "连续正确10次"
+      },
+      "wins_10": {
+        "name": "万里无云",
+        "description": "累计正确10次"
+      },
+      "wins_50": {
+        "name": "气象预言家",
+        "description": "累计正确50次"
+      },
+      "wins_100": {
+        "name": "传奇预报员",
+        "description": "累计正确100次"
+      },
+      "referral_1": {
+        "name": "社交达人",
+        "description": "邀请第一位好友"
+      },
+      "referral_5": {
+        "name": "影响力者",
+        "description": "邀请5位好友"
+      },
+      "early_adopter": {
+        "name": "先驱者",
+        "description": "在测试期加入"
+      }
+    }
+  },
+  "leaderboard": {
+    "title": "排行榜",
+    "subtitle": "顶级预测者",
+    "points": "积分",
+    "streaks": "连胜",
+    "timeframes": {
+      "all": "总榜",
+      "weekly": "周榜",
+      "monthly": "月榜"
+    },
+    "yourRank": "您的排名",
+    "noEntries": "暂无记录，成为第一个！",
+    "rank": "排名"
+  },
+  "streaks": {
+    "title": "连胜记录",
+    "currentStreak": "当前连胜",
+    "bestStreak": "最佳连胜",
+    "multiplier": "倍数",
+    "nextMilestone": "下一目标",
+    "streakBonus": "连胜奖励",
+    "dayStreak": "天连胜",
+    "daysStreak": "天连胜",
+    "keepItUp": "继续保持！",
+    "inactive": "未激活",
+    "milestones": {
+      "3": "小有成就",
+      "5": "势如破竹",
+      "10": "势不可挡",
+      "15": "传奇",
+      "20": "神话"
+    }
+  },
+  "points": {
+    "title": "积分",
+    "balance": "余额",
+    "totalEarned": "累计获得",
+    "dailyLogin": "每日登录",
+    "claimDaily": "领取每日奖励",
+    "claimed": "已领取！",
+    "claiming": "领取中...",
+    "loginStreak": "登录连续天数",
+    "bestLoginStreak": "最佳登录记录",
+    "tierBonus": "等级加成",
+    "breakdown": {
+      "title": "积分来源",
+      "bets": "预测获得",
+      "wins": "获胜奖励",
+      "streaks": "连胜加成",
+      "referrals": "推荐奖励",
+      "achievements": "成就奖励",
+      "daily": "每日登录"
+    },
+    "sources": {
+      "bet_placed": "完成预测",
+      "bet_won": "预测正确",
+      "streak_bonus": "连胜奖励",
+      "daily_login": "每日登录",
+      "referral_signup": "推荐注册",
+      "referral_bet": "推荐预测",
+      "achievement_unlock": "成就解锁",
+      "squad_bonus": "战队奖励"
+    },
+    "history": {
+      "title": "积分历史",
+      "noHistory": "暂无积分记录"
+    },
+    "dailyReward": {
+      "title": "每日登录奖励！",
+      "base": "基础奖励",
+      "streakBonus": "连续登录加成"
+    }
+  },
+  "squads": {
+    "title": "战队",
+    "subtitle": "与您的地区竞争",
+    "createSquad": "创建战队",
+    "joinSquad": "加入战队",
+    "joinDescription": "加入战队与您所在地区的其他预测者一起竞争。",
+    "yourSquad": "您的战队",
+    "leaveSquad": "退出战队",
+    "enterCode": "输入战队代码...",
+    "join": "加入",
+    "browseAll": "浏览所有战队",
+    "mySquad": "我的战队",
+    "topSquads": "顶级战队",
+    "members": "成员",
+    "totalVolume": "总交易量",
+    "weeklyRank": "周排名",
+    "allTimeRank": "总排名",
+    "region": "地区",
+    "code": "代码",
+    "searchSquads": "搜索战队...",
+    "noSquads": "未找到战队"
+  },
+  "earn": {
+    "title": "赚取",
+    "subtitle": "增加您的奖励",
+    "dailyTasks": "每日任务",
+    "referralProgram": "推荐计划",
+    "stakingRewards": "质押奖励",
+    "achievements": "成就奖励"
+  },
+  "errors": {
+    "generic": "出现错误",
+    "networkError": "网络错误，请重试",
+    "walletNotConnected": "请连接钱包",
+    "insufficientFunds": "余额不足",
+    "transactionRejected": "交易被拒绝",
+    "marketNotFound": "未找到市场",
+    "userNotFound": "未找到用户",
+    "invalidInput": "输入无效",
+    "sessionExpired": "会话已过期，请刷新页面",
+    "rateLimited": "请求过于频繁，请稍候"
+  },
+  "success": {
+    "forecastPlaced": "预测成功！",
+    "betPlaced": "预测成功！",
+    "claimSuccess": "领取成功！",
+    "copied": "已复制到剪贴板！",
+    "saved": "更改已保存！",
+    "referralApplied": "推荐码已应用！",
+    "squadJoined": "成功加入战队！"
+  },
+  "time": {
+    "justNow": "刚刚",
+    "minutesAgo": "{{count}}分钟前",
+    "minutesAgo_plural": "{{count}}分钟前",
+    "hoursAgo": "{{count}}小时前",
+    "hoursAgo_plural": "{{count}}小时前",
+    "daysAgo": "{{count}}天前",
+    "daysAgo_plural": "{{count}}天前",
+    "endsIn": "截止于",
+    "startsIn": "开始于",
+    "endedAgo": "已截止 {{time}}"
+  },
+  "locations": {
+    "KNYC": "纽约",
+    "KORD": "芝加哥",
+    "KMIA": "迈阿密",
+    "KAUS": "奥斯汀"
+  },
+  "weather": {
+    "conditions": {
+      "clear": "晴朗",
+      "cloudy": "多云",
+      "partly_cloudy": "局部多云",
+      "rain": "雨",
+      "heavy_rain": "大雨",
+      "snow": "雪",
+      "thunderstorm": "雷暴",
+      "fog": "雾",
+      "windy": "大风"
+    }
+  },
+  "cta": {
+    "makeItRain": "满载而归",
+    "rainOrShine": "风雨无阻",
+    "backYourForecast": "支持你的预测",
+    "seeTheFuture": "预见未来",
+    "weatherTheStorm": "经受风暴"
+  }
+}

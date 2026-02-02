@@ -1,0 +1,195 @@
+.hot-markets-carousel {
+    margin-bottom: var(--spacing-lg);
+}
+
+.carousel-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.carousel-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.carousel-title::before {
+    content: '🔥';
+}
+
+.carousel-subtitle {
+    font-size: var(--font-size-sm);
+    margin-top: 4px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    padding: 4px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Quick Pick Card */
+.quick-pick-card {
+    flex: 0 0 auto;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    scroll-snap-align: start;
+    transition: all 0.2s ease;
+}
+
+.quick-pick-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.quick-pick-card.market-type-binary:hover {
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.15);
+}
+
+.quick-pick-card.market-type-bracket:hover {
+    box-shadow: 0 4px 20px rgba(138, 43, 226, 0.15);
+}
+
+.quick-pick-card.market-type-scalar:hover {
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
+}
+
+/* Accent bar at top */
+.pick-accent {
+    height: 3px;
+    background: var(--color-binary);
+}
+
+.quick-pick-card.market-type-bracket .pick-accent {
+    background: var(--color-bracket);
+}
+
+.quick-pick-card.market-type-scalar .pick-accent {
+    background: var(--color-scalar);
+}
+
+.pick-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md);
+}
+
+.pick-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.pick-location {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.pick-question {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.pick-odds {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pick-yes,
+.pick-no {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pick-yes .odds-icon,
+.pick-no .odds-icon {
+    font-size: 14px;
+}
+
+.pick-yes .odds-value {
+    color: var(--color-primary-cyan);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.pick-no .odds-value {
+    color: var(--color-secondary-orange);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.pick-divider {
+    color: var(--color-text-secondary);
+}
+
+.pick-brackets-count {
+    font-size: var(--font-size-xs);
+    color: var(--color-bracket);
+}
+
+.pick-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pick-pool {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+.pick-time {
+    font-size: var(--font-size-xs);
+    color: var(--color-secondary-orange);
+    font-weight: 600;
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    .carousel-track {
+        padding: 4px 16px;
+        margin: 0 -16px;
+    }
+
+    .quick-pick-card {
+        width: 200px;
+    }
+}

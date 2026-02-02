@@ -1,0 +1,647 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Whether Agents - AI-powered autonomous trading for weather prediction markets
+
+Globals:
+  Function:
+    Runtime: python3.11
+    Timeout: 30
+    MemorySize: 512
+    Architectures:
+      - arm64
+    Environment:
+      Variables:
+        AGENTS_TABLE: !Ref AgentsTable
+        POSITIONS_TABLE: !Ref PositionsTable
+        PREDICTIONS_TABLE: !Ref PredictionsTable
+        LEADERBOARD_TABLE: !Ref LeaderboardTable
+        POSITION_QUEUE_URL: !Ref PositionExecutionQueue
+        WHETHER_API_URL: !Ref WhetherApiUrl
+        LOG_LEVEL: INFO
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+      - staging
+      - prod
+  TelegramBotToken:
+    Type: String
+    NoEcho: true
+    Description: Telegram Bot API token
+  WhetherApiUrl:
+    Type: String
+    Default: https://api.whether.io
+    Description: Whether prediction market API URL
+  OpenWeatherMapApiKey:
+    Type: String
+    NoEcho: true
+    Description: OpenWeatherMap API key for weather data
+
+Resources:
+  # =============================================================================
+  # SECRETS MANAGER
+  # =============================================================================
+
+  BotSecrets:
+    Type: AWS::SecretsManager::Secret
+    Properties:
+      Name: !Sub whether-agents-${Environment}-secrets
+      Description: Secrets for Whether Agents bot
+      SecretString: !Sub |
+        {
+          "telegram_bot_token": "${TelegramBotToken}",
+          "openweathermap_api_key": "${OpenWeatherMapApiKey}"
+        }
+
+  # =============================================================================
+  # DYNAMODB TABLES
+  # =============================================================================
+
+  AgentsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub whether-agents-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+        - AttributeName: gsi1pk
+          AttributeType: S
+        - AttributeName: gsi1sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: GSI1
+          KeySchema:
+            - AttributeName: gsi1pk
+              KeyType: HASH
+            - AttributeName: gsi1sk
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+      Tags:
+        - Key: Application
+          Value: WhetherAgents
+        - Key: Environment
+          Value: !Ref Environment
+
+  PositionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub whether-positions-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+        - AttributeName: gsi1pk
+          AttributeType: S
+        - AttributeName: gsi1sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: GSI1
+          KeySchema:
+            - AttributeName: gsi1pk
+              KeyType: HASH
+            - AttributeName: gsi1sk
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+        - Key: Application
+          Value: WhetherAgents
+        - Key: Environment
+          Value: !Ref Environment
+
+  PredictionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub whether-predictions-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+        - AttributeName: gsi1pk
+          AttributeType: S
+        - AttributeName: gsi1sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: GSI1
+          KeySchema:
+            - AttributeName: gsi1pk
+              KeyType: HASH
+            - AttributeName: gsi1sk
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+        - Key: Application
+          Value: WhetherAgents
+        - Key: Environment
+          Value: !Ref Environment
+
+  LeaderboardTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub whether-leaderboard-${Environment}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+        - AttributeName: gsi1pk
+          AttributeType: S
+        - AttributeName: score
+          AttributeType: N
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: GSI1
+          KeySchema:
+            - AttributeName: gsi1pk
+              KeyType: HASH
+            - AttributeName: score
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: Application
+          Value: WhetherAgents
+        - Key: Environment
+          Value: !Ref Environment
+
+  # =============================================================================
+  # SQS QUEUES
+  # =============================================================================
+
+  PositionExecutionQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub whether-position-execution-${Environment}
+      VisibilityTimeout: 60
+      MessageRetentionPeriod: 86400
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt PositionExecutionDLQ.Arn
+        maxReceiveCount: 3
+      Tags:
+        - Key: Application
+          Value: WhetherAgents
+        - Key: Environment
+          Value: !Ref Environment
+
+  PositionExecutionDLQ:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub whether-position-execution-dlq-${Environment}
+      MessageRetentionPeriod: 1209600
+      Tags:
+        - Key: Application
+          Value: WhetherAgents
+        - Key: Environment
+          Value: !Ref Environment
+
+  # =============================================================================
+  # LAMBDA LAYER
+  # =============================================================================
+
+  CommonLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: !Sub whether-agents-common-${Environment}
+      Description: Common utilities for Whether Agents
+      ContentUri: src/layers/common/
+      CompatibleRuntimes:
+        - python3.11
+      CompatibleArchitectures:
+        - arm64
+    Metadata:
+      BuildMethod: python3.11
+
+  # =============================================================================
+  # LAMBDA FUNCTIONS
+  # =============================================================================
+
+  BotWebhookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub whether-bot-webhook-${Environment}
+      CodeUri: src/bot_webhook/
+      Handler: app.lambda_handler
+      Layers:
+        - !Ref CommonLayer
+      Environment:
+        Variables:
+          SECRETS_ARN: !Ref BotSecrets
+          STRATEGY_SYNTHESIZER_ARN: !GetAtt StrategySynthesizerFunction.Arn
+          STATE_MACHINE_ARN: !Ref StrategyConfirmationStateMachine
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AgentsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PositionsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PredictionsTable
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - secretsmanager:GetSecretValue
+              Resource: !Ref BotSecrets
+            - Effect: Allow
+              Action:
+                - lambda:InvokeFunction
+              Resource: !GetAtt StrategySynthesizerFunction.Arn
+            - Effect: Allow
+              Action:
+                - states:StartExecution
+                - states:DescribeExecution
+              Resource: !Ref StrategyConfirmationStateMachine
+      Events:
+        Webhook:
+          Type: Api
+          Properties:
+            Path: /webhook
+            Method: POST
+            RestApiId: !Ref BotApi
+      Tags:
+        Application: WhetherAgents
+        Environment: !Ref Environment
+
+  StrategySynthesizerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub whether-strategy-synthesizer-${Environment}
+      CodeUri: src/strategy_synthesizer/
+      Handler: app.lambda_handler
+      Timeout: 60
+      MemorySize: 1024
+      Layers:
+        - !Ref CommonLayer
+      Environment:
+        Variables:
+          BEDROCK_MODEL_ID: anthropic.claude-3-5-sonnet-20241022-v2:0
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+              Resource:
+                - !Sub arn:aws:bedrock:${AWS::Region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0
+      Tags:
+        Application: WhetherAgents
+        Environment: !Ref Environment
+
+  AgentOrchestratorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub whether-agent-orchestrator-${Environment}
+      CodeUri: src/agent_orchestrator/
+      Handler: app.lambda_handler
+      Timeout: 300
+      MemorySize: 1024
+      Layers:
+        - !Ref CommonLayer
+      Environment:
+        Variables:
+          SECRETS_ARN: !Ref BotSecrets
+          BEDROCK_MODEL_ID: anthropic.claude-3-5-sonnet-20241022-v2:0
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AgentsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PredictionsTable
+        - SQSSendMessagePolicy:
+            QueueName: !GetAtt PositionExecutionQueue.QueueName
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+              Resource:
+                - !Sub arn:aws:bedrock:${AWS::Region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0
+            - Effect: Allow
+              Action:
+                - secretsmanager:GetSecretValue
+              Resource: !Ref BotSecrets
+      Events:
+        ScheduleRule:
+          Type: Schedule
+          Properties:
+            Schedule: rate(15 minutes)
+            Name: !Sub whether-agent-orchestrator-schedule-${Environment}
+            Description: Trigger agent orchestration every 15 minutes
+            Enabled: true
+      Tags:
+        Application: WhetherAgents
+        Environment: !Ref Environment
+
+  PositionExecutorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub whether-position-executor-${Environment}
+      CodeUri: src/position_executor/
+      Handler: app.lambda_handler
+      Timeout: 60
+      Layers:
+        - !Ref CommonLayer
+      Environment:
+        Variables:
+          SECRETS_ARN: !Ref BotSecrets
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AgentsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PositionsTable
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - secretsmanager:GetSecretValue
+              Resource: !Ref BotSecrets
+      Events:
+        SQSEvent:
+          Type: SQS
+          Properties:
+            Queue: !GetAtt PositionExecutionQueue.Arn
+            BatchSize: 10
+            FunctionResponseTypes:
+              - ReportBatchItemFailures
+      Tags:
+        Application: WhetherAgents
+        Environment: !Ref Environment
+
+  LeaderboardUpdaterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub whether-leaderboard-updater-${Environment}
+      CodeUri: src/leaderboard_updater/
+      Handler: app.lambda_handler
+      Timeout: 120
+      Layers:
+        - !Ref CommonLayer
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AgentsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PositionsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LeaderboardTable
+      Events:
+        HourlySchedule:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 hour)
+            Name: !Sub whether-leaderboard-schedule-${Environment}
+            Description: Update leaderboard every hour
+            Enabled: true
+      Tags:
+        Application: WhetherAgents
+        Environment: !Ref Environment
+
+  MarketResolverFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub whether-market-resolver-${Environment}
+      CodeUri: src/market_resolver/
+      Handler: app.lambda_handler
+      Timeout: 120
+      Layers:
+        - !Ref CommonLayer
+      Environment:
+        Variables:
+          SECRETS_ARN: !Ref BotSecrets
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AgentsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PositionsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LeaderboardTable
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - secretsmanager:GetSecretValue
+              Resource: !Ref BotSecrets
+      Events:
+        DailySchedule:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 12 * * ? *)
+            Name: !Sub whether-market-resolver-schedule-${Environment}
+            Description: Check and resolve markets daily at noon UTC
+            Enabled: true
+      Tags:
+        Application: WhetherAgents
+        Environment: !Ref Environment
+
+  # =============================================================================
+  # API GATEWAY
+  # =============================================================================
+
+  BotApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub whether-agents-api-${Environment}
+      StageName: !Ref Environment
+      Cors:
+        AllowOrigin: "'*'"
+        AllowMethods: "'POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Telegram-Bot-Api-Secret-Token'"
+      Tags:
+        Application: WhetherAgents
+        Environment: !Ref Environment
+
+  # =============================================================================
+  # STEP FUNCTIONS
+  # =============================================================================
+
+  StrategyConfirmationStateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      Name: !Sub whether-strategy-confirmation-${Environment}
+      DefinitionUri: statemachines/strategy_confirmation.asl.json
+      DefinitionSubstitutions:
+        StrategySynthesizerArn: !GetAtt StrategySynthesizerFunction.Arn
+        AgentsTableName: !Ref AgentsTable
+      Policies:
+        - LambdaInvokePolicy:
+            FunctionName: !Ref StrategySynthesizerFunction
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AgentsTable
+      Tags:
+        Application: WhetherAgents
+        Environment: !Ref Environment
+
+  # =============================================================================
+  # CLOUDWATCH DASHBOARD
+  # =============================================================================
+
+  MonitoringDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: !Sub whether-agents-${Environment}
+      DashboardBody: !Sub |
+        {
+          "widgets": [
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "title": "Lambda Invocations",
+                "metrics": [
+                  ["AWS/Lambda", "Invocations", "FunctionName", "${BotWebhookFunction}"],
+                  [".", ".", ".", "${StrategySynthesizerFunction}"],
+                  [".", ".", ".", "${AgentOrchestratorFunction}"],
+                  [".", ".", ".", "${PositionExecutorFunction}"]
+                ],
+                "period": 300,
+                "region": "${AWS::Region}",
+                "stat": "Sum"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 12,
+              "y": 0,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "title": "Lambda Errors",
+                "metrics": [
+                  ["AWS/Lambda", "Errors", "FunctionName", "${BotWebhookFunction}"],
+                  [".", ".", ".", "${StrategySynthesizerFunction}"],
+                  [".", ".", ".", "${AgentOrchestratorFunction}"],
+                  [".", ".", ".", "${PositionExecutorFunction}"]
+                ],
+                "period": 300,
+                "region": "${AWS::Region}",
+                "stat": "Sum"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 6,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "title": "SQS Queue Depth",
+                "metrics": [
+                  ["AWS/SQS", "ApproximateNumberOfMessagesVisible", "QueueName", "${PositionExecutionQueue.QueueName}"],
+                  [".", "ApproximateNumberOfMessagesNotVisible", ".", "."]
+                ],
+                "period": 300,
+                "region": "${AWS::Region}",
+                "stat": "Average"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 12,
+              "y": 6,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "title": "DynamoDB Throttled Requests",
+                "metrics": [
+                  ["AWS/DynamoDB", "ThrottledRequests", "TableName", "${AgentsTable}"],
+                  [".", ".", ".", "${PositionsTable}"],
+                  [".", ".", ".", "${PredictionsTable}"]
+                ],
+                "period": 300,
+                "region": "${AWS::Region}",
+                "stat": "Sum"
+              }
+            },
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 12,
+              "width": 24,
+              "height": 6,
+              "properties": {
+                "title": "Step Functions Executions",
+                "metrics": [
+                  ["AWS/States", "ExecutionsStarted", "StateMachineArn", "${StrategyConfirmationStateMachine}"],
+                  [".", "ExecutionsSucceeded", ".", "."],
+                  [".", "ExecutionsFailed", ".", "."]
+                ],
+                "period": 300,
+                "region": "${AWS::Region}",
+                "stat": "Sum"
+              }
+            }
+          ]
+        }
+
+Outputs:
+  BotWebhookUrl:
+    Description: Telegram Bot Webhook URL
+    Value: !Sub https://${BotApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}/webhook
+
+  AgentsTableName:
+    Description: DynamoDB Agents Table Name
+    Value: !Ref AgentsTable
+
+  PositionsTableName:
+    Description: DynamoDB Positions Table Name
+    Value: !Ref PositionsTable
+
+  PredictionsTableName:
+    Description: DynamoDB Predictions Table Name
+    Value: !Ref PredictionsTable
+
+  LeaderboardTableName:
+    Description: DynamoDB Leaderboard Table Name
+    Value: !Ref LeaderboardTable
+
+  PositionQueueUrl:
+    Description: Position Execution Queue URL
+    Value: !Ref PositionExecutionQueue
+
+  StateMachineArn:
+    Description: Strategy Confirmation State Machine ARN
+    Value: !Ref StrategyConfirmationStateMachine
+
+  DashboardUrl:
+    Description: CloudWatch Dashboard URL
+    Value: !Sub https://${AWS::Region}.console.aws.amazon.com/cloudwatch/home?region=${AWS::Region}#dashboards:name=whether-agents-${Environment}

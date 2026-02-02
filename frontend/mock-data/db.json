@@ -1,0 +1,161 @@
+{
+    "markets": [
+        {
+            "id": "1",
+            "marketId": 1,
+            "address": "EQC...",
+            "title": "NYC Rain",
+            "question": "Will it rain in New York tomorrow?",
+            "description": "Binary market on precipitation > 0mm",
+            "locationId": 1001,
+            "location": "KNYC",
+            "marketType": "binary",
+            "resolutionType": "precipitation",
+            "threshold": 0,
+            "comparisonType": "gt",
+            "settlementTime": 1767398400,
+            "bettingEndsAt": 1767394800,
+            "status": "active",
+            "yesPrice": 0.35,
+            "noPrice": 0.65,
+            "yesPool": "1500000000000",
+            "noPool": "2800000000000",
+            "totalCollateral": "4300000000000",
+            "totalVolume": "5000000000000",
+            "uniqueBettors": 124,
+            "yesSupply": "1500000000000",
+            "noSupply": "2800000000000",
+            "createdAt": 1767300000
+        },
+        {
+            "id": "2",
+            "marketId": 2,
+            "address": "EQD...",
+            "title": "Miami Temp Range",
+            "question": "What will be the high temperature in Miami?",
+            "description": "Bracket market for daily high",
+            "locationId": 1003,
+            "location": "KMIA",
+            "marketType": "bracket",
+            "resolutionType": "temp_high",
+            "threshold": 0,
+            "comparisonType": "eq",
+            "settlementTime": 1767398400,
+            "bettingEndsAt": 1767394800,
+            "status": "active",
+            "yesPrice": 0,
+            "noPrice": 0,
+            "yesPool": "0",
+            "noPool": "0",
+            "totalCollateral": "8500000000000",
+            "totalVolume": "8500000000000",
+            "uniqueBettors": 89,
+            "yesSupply": "0",
+            "noSupply": "0",
+            "createdAt": 1767300000,
+            "brackets": [
+                {
+                    "id": "b1",
+                    "marketId": "2",
+                    "index": 0,
+                    "lowerBound": -100,
+                    "upperBound": 70,
+                    "label": "< 70°F",
+                    "totalStaked": "100000000000"
+                },
+                {
+                    "id": "b2",
+                    "marketId": "2",
+                    "index": 1,
+                    "lowerBound": 70,
+                    "upperBound": 75,
+                    "label": "70-75°F",
+                    "totalStaked": "2500000000000"
+                },
+                {
+                    "id": "b3",
+                    "marketId": "2",
+                    "index": 2,
+                    "lowerBound": 75,
+                    "upperBound": 80,
+                    "label": "75-80°F",
+                    "totalStaked": "4000000000000"
+                },
+                {
+                    "id": "b4",
+                    "marketId": "2",
+                    "index": 3,
+                    "lowerBound": 80,
+                    "upperBound": 85,
+                    "label": "80-85°F",
+                    "totalStaked": "1500000000000"
+                },
+                {
+                    "id": "b5",
+                    "marketId": "2",
+                    "index": 4,
+                    "lowerBound": 85,
+                    "upperBound": 200,
+                    "label": "> 85°F",
+                    "totalStaked": "400000000000"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "marketId": 3,
+            "address": "EQE...",
+            "title": "Austin Heat",
+            "question": "Will Austin exceed 95°F?",
+            "description": "Scalar market on temperature threshold",
+            "locationId": 1004,
+            "location": "KAUS",
+            "marketType": "scalar",
+            "resolutionType": "temp_high",
+            "threshold": 95,
+            "comparisonType": "gt",
+            "settlementTime": 1767398400,
+            "bettingEndsAt": 1767394800,
+            "status": "active",
+            "yesPrice": 0.82,
+            "noPrice": 0.18,
+            "yesPool": "3000000000000",
+            "noPool": "650000000000",
+            "totalCollateral": "3650000000000",
+            "totalVolume": "4000000000000",
+            "uniqueBettors": 210,
+            "yesSupply": "3000000000000",
+            "noSupply": "650000000000",
+            "createdAt": 1767300000
+        }
+    ],
+    "forecasts": [
+        {
+            "location": "KNYC",
+            "location_id": 1001,
+            "date": "2026-01-05",
+            "point_forecast": {
+                "t_max": 45,
+                "t_min": 32
+            },
+            "distribution": {
+                "p10": 30,
+                "p25": 35,
+                "p50": 40,
+                "p75": 48,
+                "p90": 55
+            },
+            "confidence": {
+                "ci_68": [
+                    35,
+                    48
+                ],
+                "ci_95": [
+                    30,
+                    55
+                ]
+            },
+            "generated_at": "2026-01-04T10:00:00Z"
+        }
+    ]
+}

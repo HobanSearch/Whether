@@ -1,0 +1,288 @@
+.trade-form {
+    padding: var(--spacing-sm) 0;
+}
+
+.side-selector {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.side-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.side-btn.yes.active {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--color-primary-cyan);
+    box-shadow: var(--neon-glow-cyan);
+}
+
+.side-btn.no.active {
+    background: rgba(255, 92, 0, 0.1);
+    border-color: var(--color-secondary-orange);
+    box-shadow: var(--neon-glow-orange);
+}
+
+.side-price {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-top: var(--spacing-xs);
+    font-family: var(--font-family-data);
+}
+
+.input-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.input-label {
+    display: block;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.slider-container {
+    margin-bottom: var(--spacing-sm);
+}
+
+.conviction-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    outline: none;
+}
+
+.conviction-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-primary-cyan);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    margin-top: -9px;
+    /* center thumb on track (6px height) -> (6-24)/2 = -9 */
+    /* Wait, standard css slider trick */
+}
+
+/* Run track styling for better cross-browser if needed, but simple webkit is fine for TMA on iOS/Android (webkit based usually) */
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+}
+
+.amount-display {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text-primary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xl);
+    font-family: var(--font-family-data);
+    text-align: center;
+}
+
+.trade-summary {
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.summary-value {
+    color: var(--color-text-primary);
+    font-family: var(--font-family-data);
+}
+
+.summary-value.warning {
+    color: var(--color-secondary-orange);
+}
+
+.slippage-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.slippage-options {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.slippage-btn {
+    background: transparent;
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-text-secondary);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+}
+
+.slippage-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+    border-color: var(--color-text-secondary);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn.yes {
+    background: var(--color-primary-cyan);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.submit-btn.no {
+    background: var(--color-secondary-orange);
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 92, 0, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Bracket Mode Styles */
+.trade-form.bracket-mode {
+    /* No changes needed for bracket mode container */
+}
+
+.bracket-selector {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.bracket-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s;
+    min-height: 70px;
+}
+
+.bracket-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(138, 43, 226, 0.3);
+}
+
+.bracket-btn.active {
+    background: rgba(138, 43, 226, 0.15);
+    border-color: #8a2be2;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+}
+
+.bracket-btn.rank-1.active {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.bracket-btn.rank-2.active {
+    background: rgba(192, 192, 192, 0.1);
+    border-color: #c0c0c0;
+}
+
+.bracket-btn.rank-3.active {
+    background: rgba(205, 127, 50, 0.1);
+    border-color: #cd7f32;
+}
+
+.bracket-btn .bracket-range {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+}
+
+.bracket-btn.active .bracket-range {
+    color: var(--color-text-primary);
+}
+
+.bracket-btn .bracket-odds {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    font-family: var(--font-family-data);
+    color: var(--color-text-primary);
+}
+
+.bracket-btn.rank-1 .bracket-odds {
+    color: #ffd700;
+}
+
+.bracket-btn.rank-2 .bracket-odds {
+    color: #c0c0c0;
+}
+
+.bracket-btn.rank-3 .bracket-odds {
+    color: #cd7f32;
+}
+
+.bracket-btn.active .bracket-odds {
+    color: #8a2be2;
+}
+
+.bracket-btn.rank-1.active .bracket-odds {
+    color: #ffd700;
+}
+
+/* Bracket selected summary */
+.summary-value.bracket-selected {
+    color: #8a2be2;
+    font-weight: 600;
+}
+
+/* Bracket submit button */
+.submit-btn.bracket {
+    background: #8a2be2;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+}
+
+.side-icon-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-sm);
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+}

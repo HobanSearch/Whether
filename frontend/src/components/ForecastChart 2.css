@@ -1,0 +1,224 @@
+.forecast-chart {
+    padding: var(--spacing-md);
+}
+
+.chart-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.chart-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.title-text {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+}
+
+.forecast-date {
+    font-size: var(--font-size-sm);
+}
+
+.point-forecast {
+    display: flex;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.point-forecast .label {
+    font-weight: normal;
+}
+
+.point-forecast .value {
+    font-weight: 600;
+}
+
+.distribution-chart {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
+.chart-track {
+    position: relative;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+    overflow: visible;
+}
+
+.confidence-band {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    border-radius: 4px;
+}
+
+.ci-90 {
+    background: rgba(0, 240, 255, 0.15);
+    height: 12px;
+}
+
+.ci-50 {
+    background: rgba(0, 240, 255, 0.35);
+    height: 20px;
+}
+
+.median-marker {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker-line {
+    width: 2px;
+    height: 100%;
+    background: var(--color-primary-cyan);
+}
+
+.marker-dot {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-primary-cyan);
+}
+
+.threshold-marker {
+    position: absolute;
+    top: -8px;
+    bottom: -8px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.threshold-marker .threshold-line {
+    width: 2px;
+    height: calc(100% - 20px);
+    background: var(--color-secondary-orange);
+    opacity: 0.8;
+}
+
+.threshold-flag {
+    position: absolute;
+    top: -4px;
+    background: var(--color-secondary-orange);
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.threshold-flag .threshold-value {
+    font-size: 10px;
+    color: white;
+    font-weight: 600;
+}
+
+.chart-labels {
+    position: relative;
+    height: 36px;
+    margin-top: var(--spacing-sm);
+}
+
+.label-item {
+    position: absolute;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.percentile-label {
+    color: var(--color-text-secondary);
+    font-size: 10px;
+}
+
+.percentile-value {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+}
+
+.probability-section {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+}
+
+.probability-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+}
+
+.probability-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary-cyan), var(--color-success-matrix));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.probability-label {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+}
+
+.probability-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary-cyan);
+}
+
+.probability-text {
+    font-size: var(--font-size-sm);
+}
+
+.confidence-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.legend-swatch {
+    width: 16px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.ci-50-swatch {
+    background: rgba(0, 240, 255, 0.35);
+}
+
+.ci-90-swatch {
+    background: rgba(0, 240, 255, 0.15);
+}
+
+.legend-text {
+    font-size: 10px;
+}

@@ -1,0 +1,64 @@
+# Whether Agents SAM Configuration
+# Deploy with: sam build && sam deploy --guided
+
+version = 0.1
+
+[default]
+[default.global.parameters]
+stack_name = "whether-agents"
+
+[default.build.parameters]
+cached = true
+parallel = true
+
+[default.validate.parameters]
+lint = true
+
+[default.deploy.parameters]
+capabilities = "CAPABILITY_IAM CAPABILITY_AUTO_EXPAND"
+confirm_changeset = true
+resolve_s3 = true
+region = "us-east-1"
+parameter_overrides = [
+    "Environment=dev",
+    "WhetherApiUrl=http://localhost:8000"
+]
+
+[default.sync.parameters]
+watch = true
+
+[dev]
+[dev.deploy.parameters]
+stack_name = "whether-agents-dev"
+s3_prefix = "whether-agents-dev"
+region = "us-east-1"
+confirm_changeset = false
+capabilities = "CAPABILITY_IAM CAPABILITY_AUTO_EXPAND"
+parameter_overrides = [
+    "Environment=dev",
+    "WhetherApiUrl=http://localhost:8000"
+]
+
+[staging]
+[staging.deploy.parameters]
+stack_name = "whether-agents-staging"
+s3_prefix = "whether-agents-staging"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM CAPABILITY_AUTO_EXPAND"
+parameter_overrides = [
+    "Environment=staging",
+    "WhetherApiUrl=https://staging-api.whether.io"
+]
+
+[prod]
+[prod.deploy.parameters]
+stack_name = "whether-agents-prod"
+s3_prefix = "whether-agents-prod"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM CAPABILITY_AUTO_EXPAND"
+parameter_overrides = [
+    "Environment=prod",
+    "WhetherApiUrl=https://whether.tonsurance.com/api"
+]

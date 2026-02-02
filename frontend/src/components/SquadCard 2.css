@@ -1,0 +1,138 @@
+.squad-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.squad-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.squad-card.user-squad {
+    border-color: var(--color-primary-cyan);
+}
+
+.squad-rank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.rank-number {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+}
+
+.squad-rank.rank-1 {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.squad-rank.rank-1 .rank-number {
+    color: #000;
+}
+
+.squad-rank.rank-2 {
+    background: linear-gradient(135deg, #C0C0C0, #A0A0A0);
+}
+
+.squad-rank.rank-2 .rank-number {
+    color: #000;
+}
+
+.squad-rank.rank-3 {
+    background: linear-gradient(135deg, #CD7F32, #8B4513);
+}
+
+.squad-rank.rank-3 .rank-number {
+    color: #fff;
+}
+
+.squad-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.squad-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    margin-bottom: 2px;
+}
+
+.squad-name {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.squad-code {
+    font-size: var(--font-size-xs);
+    flex-shrink: 0;
+}
+
+.squad-region {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.squad-stats {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.stat-value {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.user-squad-badge {
+    position: absolute;
+    top: var(--spacing-xs);
+    right: var(--spacing-xs);
+    padding: 2px 8px;
+    background: var(--color-primary-cyan);
+    color: #000;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 400px) {
+    .squad-stats {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .stat-item {
+        flex-direction: row;
+        gap: var(--spacing-xs);
+    }
+}

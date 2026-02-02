@@ -1,0 +1,56 @@
+.wallet-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    min-height: 44px;
+    border-radius: 12px;
+    border: none;
+    background: var(--tg-theme-button-color, #00F0FF);
+    color: var(--tg-theme-button-text-color, #000000);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.wallet-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.wallet-button:active {
+    transform: translateY(0);
+    opacity: 0.8;
+}
+
+.wallet-button.connected {
+    background: var(--glass-bg, rgba(255, 255, 255, 0.1));
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.2));
+    color: var(--tg-theme-text-color, #ffffff);
+}
+
+.wallet-button.connected:hover {
+    background: var(--glass-bg-hover, rgba(255, 255, 255, 0.15));
+}
+
+.wallet-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.wallet-address {
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.wallet-icon {
+    width: 20px;
+    height: 20px;
+}

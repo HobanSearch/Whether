@@ -1,0 +1,306 @@
+.featured-market-hero {
+    display: block;
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.featured-market-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-binary);
+}
+
+.featured-market-hero.market-type-bracket:hover {
+    box-shadow: var(--shadow-bracket);
+}
+
+.featured-market-hero.market-type-scalar:hover {
+    box-shadow: var(--shadow-scalar);
+}
+
+/* Accent bar at top */
+.hero-accent-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-binary), var(--color-primary-cyan));
+}
+
+.featured-market-hero.market-type-bracket .hero-accent-bar {
+    background: linear-gradient(90deg, var(--color-bracket), #b366ff);
+}
+
+.featured-market-hero.market-type-scalar .hero-accent-bar {
+    background: linear-gradient(90deg, var(--color-scalar), #ffeb3b);
+}
+
+.hero-content {
+    padding: var(--spacing-lg);
+}
+
+.hero-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.storm-front-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: linear-gradient(135deg, rgba(255, 92, 0, 0.2), rgba(255, 0, 50, 0.2));
+    border: 1px solid var(--color-secondary-orange);
+    border-radius: var(--radius-full);
+    color: var(--color-secondary-orange);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.storm-front-badge::before {
+    content: '🌪️';
+    font-size: 12px;
+}
+
+.hero-question {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.hero-threshold {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.threshold-label {
+    color: var(--color-text-secondary);
+}
+
+.threshold-value {
+    font-size: var(--font-size-md);
+    color: var(--color-primary-cyan);
+}
+
+/* Binary/Scalar Odds */
+.hero-binary-odds {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-outcome {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.hero-outcome.yes {
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+.hero-outcome.no {
+    border-color: rgba(255, 92, 0, 0.3);
+}
+
+.hero-outcome:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.outcome-icon {
+    font-size: 24px;
+}
+
+.outcome-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-outcome.yes .outcome-odds {
+    color: var(--color-primary-cyan);
+}
+
+.hero-outcome.no .outcome-odds {
+    color: var(--color-secondary-orange);
+}
+
+.outcome-odds {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+}
+
+/* Bracket Odds */
+.hero-brackets {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-bracket {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(138, 43, 226, 0.1);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: var(--radius-md);
+}
+
+.hero-bracket.rank-1 {
+    background: rgba(138, 43, 226, 0.2);
+    border-color: var(--color-bracket);
+}
+
+.hero-bracket .bracket-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+.hero-bracket .bracket-odds {
+    font-family: var(--font-family-data);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-bracket);
+}
+
+/* Footer */
+.hero-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero-stats .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hero-stats .stat-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+.hero-stats .stat-value {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+}
+
+.hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary-cyan), #00c8ff);
+    border: none;
+    border-radius: var(--radius-md);
+    color: #000;
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hero-cta:hover {
+    transform: scale(1.02);
+    box-shadow: var(--neon-glow-cyan);
+}
+
+.cta-arrow {
+    font-size: 18px;
+    transition: transform 0.2s ease;
+}
+
+.hero-cta:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+/* Market type specific CTA colors */
+.featured-market-hero.market-type-bracket .hero-cta {
+    background: linear-gradient(135deg, var(--color-bracket), #b366ff);
+}
+
+.featured-market-hero.market-type-scalar .hero-cta {
+    background: linear-gradient(135deg, var(--color-scalar), #ffeb3b);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .hero-content {
+        padding: var(--spacing-md);
+    }
+
+    .hero-question {
+        font-size: var(--font-size-md);
+    }
+
+    .hero-binary-odds {
+        gap: var(--spacing-sm);
+    }
+
+    .hero-outcome {
+        padding: var(--spacing-sm);
+    }
+
+    .outcome-icon {
+        font-size: 20px;
+    }
+
+    .outcome-odds {
+        font-size: var(--font-size-lg);
+    }
+
+    .hero-brackets {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+
+    .hero-bracket {
+        flex: 1 1 45%;
+        min-width: 80px;
+    }
+
+    .hero-bracket .bracket-odds {
+        font-size: var(--font-size-md);
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .hero-stats .stat {
+        flex: 1 1 45%;
+    }
+}

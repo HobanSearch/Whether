@@ -1,0 +1,51 @@
+.weather-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.weather-metric {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.metric-icon {
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
+}
+
+.metric-info {
+    flex: 1;
+}
+
+.metric-value {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.metric-label {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.metric-trend {
+    font-size: 0.75em;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.metric-trend.up {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.metric-trend.down {
+    background: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+}

@@ -1,0 +1,558 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "viewAll": "View All",
+    "noResults": "No results found",
+    "connectWallet": "Connect Wallet",
+    "disconnect": "Disconnect",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "share": "Share",
+    "settings": "Settings",
+    "language": "Language",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and",
+    "of": "of",
+    "all": "All",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "points": "points",
+    "ton": "TON",
+    "sunshine": "Sunshine",
+    "clouds": "Clouds",
+    "search": "Search"
+  },
+  "settings": {
+    "language": "Language",
+    "temperatureUnit": "Temperature"
+  },
+  "nav": {
+    "home": "Home",
+    "markets": "Markets",
+    "forecast": "Forecast",
+    "portfolio": "My Forecasts",
+    "earn": "Earn",
+    "profile": "Profile",
+    "squads": "Squads",
+    "achievements": "Achievements",
+    "leaderboard": "Leaderboard"
+  },
+  "home": {
+    "title": "Whether",
+    "subtitle": "Predict the weather, make it rain",
+    "featuredMarkets": "Storm Front",
+    "hotMarkets": "Heating Up",
+    "trendingNow": "Trending Now",
+    "quickPicks": "Quick Picks",
+    "quickPicksSubtitle": "Chance of profits in under 5 minutes",
+    "viewAllMarkets": "View All Markets",
+    "welcomeBack": "Welcome back",
+    "newUser": "New to Whether?",
+    "getStarted": "Get Started",
+    "dailyReward": "Daily Reward Available!",
+    "claimNow": "Claim Now",
+    "rainOrShine": "Rain or shine rewards await"
+  },
+  "markets": {
+    "title": "Markets",
+    "subtitle": "Back your weather predictions",
+    "activeMarkets": "Live Markets",
+    "upcomingMarkets": "Coming Soon",
+    "closedMarkets": "Settled",
+    "allMarkets": "All Markets",
+    "filterByLocation": "Filter by Location",
+    "filterByType": "Filter by Type",
+    "filterByStatus": "Filter by Status",
+    "filterByProductLine": "Filter by Category",
+    "noMarkets": "No markets available",
+    "searchPlaceholder": "Search markets...",
+    "marketEnds": "Closes",
+    "settlementDate": "Settlement Date",
+    "poolSize": "Pool Size",
+    "volume": "Pool Size",
+    "liquidity": "Liquidity",
+    "forecasters": "Forecasters",
+    "participants": "Forecasters",
+    "stormFront": "Storm Front",
+    "heatingUp": "Heating Up",
+    "status": {
+      "active": "Live",
+      "pending": "Coming Soon",
+      "settled": "Settled",
+      "cancelled": "Cancelled",
+      "disputed": "Under Review",
+      "expired": "Closed",
+      "resolving": "Resolving"
+    },
+    "types": {
+      "temperature_high": "High Temperature",
+      "temperature_low": "Low Temperature",
+      "precipitation": "Precipitation",
+      "visibility": "Visibility",
+      "wind_speed": "Wind Speed"
+    },
+    "marketTypes": {
+      "binary": "Yes/No",
+      "bracket": "Bracket",
+      "scalar": "Range"
+    },
+    "comparison": {
+      "above": "Above",
+      "below": "Below",
+      "between": "Between"
+    }
+  },
+  "productLines": {
+    "all": "All Categories",
+    "airport": "Flight Watch",
+    "urban": "City Heat",
+    "precipitation": "Rain Check",
+    "extreme": "Storm Chasers",
+    "energy": "Power Grid",
+    "agricultural": "Harvest Outlook"
+  },
+  "market": {
+    "backYourPrediction": "Back Your Prediction",
+    "takePosition": "Take a Position",
+    "placeYourBet": "Back Your Prediction",
+    "predictYes": "Sunshine",
+    "predictNo": "Clouds",
+    "amount": "Amount",
+    "estimatedReturn": "Potential Return",
+    "potentialWin": "If You're Right",
+    "priceImpact": "Price Impact",
+    "slippage": "Slippage",
+    "currentOdds": "Current Odds",
+    "yourPosition": "Your Forecast",
+    "noPosition": "No position yet",
+    "placeBet": "Back This",
+    "claimWinnings": "Claim Rewards",
+    "claimRefund": "Claim Refund",
+    "marketDetails": "Market Details",
+    "condition": "Condition",
+    "threshold": "Threshold",
+    "location": "Location",
+    "settlementSource": "Data Source",
+    "oracleData": "Oracle Data",
+    "priceHistory": "Price History",
+    "recentTrades": "Recent Activity",
+    "outcome": "Outcome",
+    "result": "Result",
+    "won": "Correct!",
+    "lost": "Incorrect",
+    "pending": "Pending",
+    "notSettled": "Not settled yet",
+    "forecastPeek": "Forecast Peek",
+    "aiConfidence": "AI Confidence",
+    "warnings": {
+      "highSlippage": "High slippage warning",
+      "lowLiquidity": "Low liquidity",
+      "marketClosingSoon": "Closing soon!"
+    }
+  },
+  "trading": {
+    "buy": "Back",
+    "sell": "Sell",
+    "trade": "Trade",
+    "orderPlaced": "Position Opened",
+    "orderFailed": "Transaction Failed",
+    "confirmTrade": "Confirm Position",
+    "reviewOrder": "Review Your Forecast",
+    "side": "Side",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "fee": "Fee",
+    "gasFee": "Gas Fee",
+    "minReceived": "Minimum Received",
+    "maxPaid": "Maximum Paid",
+    "transactionPending": "Processing...",
+    "transactionConfirmed": "Confirmed!",
+    "transactionFailed": "Transaction Failed",
+    "viewOnExplorer": "View on Explorer",
+    "insufficientBalance": "Insufficient Balance",
+    "enterAmount": "Enter amount",
+    "connectToTrade": "Connect wallet to forecast"
+  },
+  "portfolio": {
+    "title": "My Forecasts",
+    "subtitle": "Your positions and history",
+    "totalValue": "Total Value",
+    "unrealizedPnL": "Unrealized P&L",
+    "realizedPnL": "Realized P&L",
+    "openPositions": "Open Forecasts",
+    "closedPositions": "Closed Forecasts",
+    "claimablePositions": "Ready to Claim",
+    "allPositions": "All Forecasts",
+    "noPositions": "No forecasts yet",
+    "startTrading": "Start Forecasting",
+    "position": "Position",
+    "entry": "Entry",
+    "current": "Current",
+    "pnl": "P&L",
+    "claim": "Claim",
+    "claimed": "Claimed",
+    "refund": "Refund",
+    "history": "History",
+    "transactionHistory": "Transaction History"
+  },
+  "forecast": {
+    "title": "AI Forecast",
+    "subtitle": "AI-powered weather predictions",
+    "selectLocation": "Select Location",
+    "selectDate": "Select Date",
+    "temperature": "Temperature",
+    "high": "High",
+    "low": "Low",
+    "precipitation": "Precipitation",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "visibility": "Visibility",
+    "conditions": "Conditions",
+    "confidence": "Confidence",
+    "probabilityDistribution": "Probability Distribution",
+    "percentile": "Percentile",
+    "modelWeights": "Model Weights",
+    "updatedAt": "Updated at",
+    "p10": "10th percentile",
+    "p50": "Median",
+    "p90": "90th percentile",
+    "exceedanceProb": "Probability above threshold",
+    "units": {
+      "celsius": "°C",
+      "fahrenheit": "°F",
+      "mm": "mm",
+      "inches": "in",
+      "kmh": "km/h",
+      "mph": "mph",
+      "km": "km",
+      "miles": "mi"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "editProfile": "Edit Profile",
+    "myStats": "My Stats",
+    "totalForecasts": "Total Forecasts",
+    "totalBets": "Total Forecasts",
+    "totalWins": "Correct Predictions",
+    "winRate": "Accuracy",
+    "totalVolume": "Total Volume",
+    "accuracy": "Prediction Accuracy",
+    "tier": "Tier",
+    "tiers": {
+      "1": "Observer",
+      "2": "Storm Chaser",
+      "3": "Oracle",
+      "4": "Council Member"
+    },
+    "referral": {
+      "title": "Referral Program",
+      "yourCode": "Your Referral Code",
+      "applyCode": "Apply Referral Code",
+      "applyDescription": "Enter a referral code from a friend to earn bonus rewards.",
+      "enterCode": "Enter referral code...",
+      "apply": "Apply",
+      "applied": "Referral applied!",
+      "invalidCode": "Invalid referral code",
+      "earnings": "Referral Earnings",
+      "inviteFriends": "Invite Friends",
+      "shareLink": "Share your link"
+    },
+    "squad": {
+      "title": "Squad",
+      "yourSquad": "Your Squad",
+      "joinSquad": "Join a Squad",
+      "leaveSquad": "Leave Squad",
+      "enterCode": "Enter squad code...",
+      "join": "Join",
+      "browse": "Browse all squads",
+      "rank": "Rank",
+      "members": "Members"
+    },
+    "wallet": {
+      "title": "Wallet",
+      "connected": "Connected",
+      "notConnected": "Not Connected",
+      "address": "Address",
+      "balance": "Balance"
+    },
+    "links": {
+      "viewPositions": "View Forecasts",
+      "browseMarkets": "Browse Markets",
+      "achievements": "Achievements",
+      "leaderboard": "Leaderboard"
+    },
+    "tradingRecord": "Trading Track Record",
+    "recentTrades": "Recent Trades",
+    "stats": {
+      "totalTrades": "Trades",
+      "wins": "Wins",
+      "losses": "Losses",
+      "winRate": "Win Rate",
+      "totalVolume": "Volume",
+      "pending": "Pending"
+    },
+    "telegram": {
+      "linkAccount": "Link Telegram Account",
+      "linkDescription": "Open this app in Telegram to unlock achievements, points, and leaderboard features."
+    }
+  },
+  "achievements": {
+    "title": "Achievements",
+    "subtitle": "Track your weather wisdom",
+    "recentAchievements": "Recent Achievements",
+    "unlocked": "Unlocked",
+    "locked": "Locked",
+    "progress": "Progress",
+    "reward": "Reward",
+    "unlockedOn": "Unlocked on",
+    "category": "Category",
+    "categories": {
+      "all": "All",
+      "betting": "Forecasting",
+      "streaks": "Streaks",
+      "social": "Social",
+      "special": "Special"
+    },
+    "rarity": {
+      "common": "Common",
+      "uncommon": "Uncommon",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary"
+    },
+    "stats": {
+      "total": "Total Achievements",
+      "completion": "Completion",
+      "pointsEarned": "Points from Achievements"
+    },
+    "noMatches": "No achievements match your filters",
+    "list": {
+      "first_bet": {
+        "name": "First Steps",
+        "description": "Make your first forecast"
+      },
+      "ten_bets": {
+        "name": "Getting Started",
+        "description": "Make 10 forecasts"
+      },
+      "fifty_bets": {
+        "name": "Weather Watcher",
+        "description": "Make 50 forecasts"
+      },
+      "hundred_bets": {
+        "name": "Storm Tracker",
+        "description": "Make 100 forecasts"
+      },
+      "streak_3": {
+        "name": "Hot Streak",
+        "description": "Get 3 correct in a row"
+      },
+      "streak_5": {
+        "name": "On Fire",
+        "description": "Get 5 correct in a row"
+      },
+      "streak_10": {
+        "name": "Unstoppable",
+        "description": "Get 10 correct in a row"
+      },
+      "wins_10": {
+        "name": "Clear Skies",
+        "description": "Get 10 correct predictions"
+      },
+      "wins_50": {
+        "name": "Weather Oracle",
+        "description": "Get 50 correct predictions"
+      },
+      "wins_100": {
+        "name": "Legendary Forecaster",
+        "description": "Get 100 correct predictions"
+      },
+      "referral_1": {
+        "name": "Networker",
+        "description": "Refer your first friend"
+      },
+      "referral_5": {
+        "name": "Influencer",
+        "description": "Refer 5 friends"
+      },
+      "early_adopter": {
+        "name": "Early Adopter",
+        "description": "Join during beta"
+      }
+    }
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "subtitle": "Top forecasters",
+    "points": "Points",
+    "streaks": "Streaks",
+    "timeframes": {
+      "all": "All Time",
+      "weekly": "Weekly",
+      "monthly": "Monthly"
+    },
+    "yourRank": "Your Rank",
+    "noEntries": "No entries yet. Be the first!",
+    "rank": "Rank"
+  },
+  "streaks": {
+    "title": "Winning Streak",
+    "currentStreak": "Current Streak",
+    "bestStreak": "Best Streak",
+    "multiplier": "Multiplier",
+    "nextMilestone": "Next Milestone",
+    "streakBonus": "Streak Bonus",
+    "dayStreak": "day streak",
+    "daysStreak": "day streak",
+    "keepItUp": "Keep it up!",
+    "inactive": "Inactive",
+    "milestones": {
+      "3": "Hot Streak",
+      "5": "On Fire",
+      "10": "Unstoppable",
+      "15": "Legendary",
+      "20": "Mythical"
+    }
+  },
+  "points": {
+    "title": "Points",
+    "balance": "Balance",
+    "totalEarned": "Total Earned",
+    "dailyLogin": "Daily Login",
+    "claimDaily": "Claim Daily Bonus",
+    "claimed": "Claimed!",
+    "claiming": "Claiming...",
+    "loginStreak": "Login Streak",
+    "bestLoginStreak": "Best Login Streak",
+    "tierBonus": "Tier Bonus",
+    "breakdown": {
+      "title": "Points Earned",
+      "bets": "From Forecasts",
+      "wins": "From Wins",
+      "streaks": "Streak Bonuses",
+      "referrals": "Referrals",
+      "achievements": "Achievements",
+      "daily": "Daily Login"
+    },
+    "sources": {
+      "bet_placed": "Forecast Made",
+      "bet_won": "Correct Prediction",
+      "streak_bonus": "Streak Bonus",
+      "daily_login": "Daily Login",
+      "referral_signup": "Referral Signup",
+      "referral_bet": "Referral Forecast",
+      "achievement_unlock": "Achievement Unlocked",
+      "squad_bonus": "Squad Bonus"
+    },
+    "history": {
+      "title": "Points History",
+      "noHistory": "No points history yet"
+    },
+    "dailyReward": {
+      "title": "Daily Login Reward!",
+      "base": "Base",
+      "streakBonus": "Streak bonus"
+    }
+  },
+  "squads": {
+    "title": "Squads",
+    "subtitle": "Compete with your region",
+    "createSquad": "Create Squad",
+    "joinSquad": "Join a Squad",
+    "joinDescription": "Join a squad to compete with other forecasters in your region.",
+    "yourSquad": "Your Squad",
+    "leaveSquad": "Leave Squad",
+    "enterCode": "Enter squad code...",
+    "join": "Join",
+    "browseAll": "Browse all squads",
+    "mySquad": "My Squad",
+    "topSquads": "Top Squads",
+    "members": "Members",
+    "totalVolume": "Total Volume",
+    "weeklyRank": "Weekly Rank",
+    "allTimeRank": "All Time Rank",
+    "region": "Region",
+    "code": "Code",
+    "searchSquads": "Search squads...",
+    "noSquads": "No squads found"
+  },
+  "earn": {
+    "title": "Earn",
+    "subtitle": "Boost your rewards",
+    "dailyTasks": "Daily Tasks",
+    "referralProgram": "Referral Program",
+    "stakingRewards": "Staking Rewards",
+    "achievements": "Achievements"
+  },
+  "errors": {
+    "generic": "Something went wrong",
+    "networkError": "Network error. Please try again.",
+    "walletNotConnected": "Please connect your wallet",
+    "insufficientFunds": "Insufficient funds",
+    "transactionRejected": "Transaction rejected",
+    "marketNotFound": "Market not found",
+    "userNotFound": "User not found",
+    "invalidInput": "Invalid input",
+    "sessionExpired": "Session expired. Please refresh.",
+    "rateLimited": "Too many requests. Please wait."
+  },
+  "success": {
+    "forecastPlaced": "Forecast placed successfully!",
+    "betPlaced": "Forecast placed successfully!",
+    "claimSuccess": "Claim successful!",
+    "copied": "Copied to clipboard!",
+    "saved": "Changes saved!",
+    "referralApplied": "Referral code applied!",
+    "squadJoined": "Joined squad successfully!"
+  },
+  "time": {
+    "justNow": "Just now",
+    "minutesAgo": "{{count}} minute ago",
+    "minutesAgo_plural": "{{count}} minutes ago",
+    "hoursAgo": "{{count}} hour ago",
+    "hoursAgo_plural": "{{count}} hours ago",
+    "daysAgo": "{{count}} day ago",
+    "daysAgo_plural": "{{count}} days ago",
+    "endsIn": "Closes in",
+    "startsIn": "Opens in",
+    "endedAgo": "Closed {{time}} ago"
+  },
+  "locations": {
+    "KNYC": "New York City",
+    "KORD": "Chicago",
+    "KMIA": "Miami",
+    "KAUS": "Austin"
+  },
+  "weather": {
+    "conditions": {
+      "clear": "Clear",
+      "cloudy": "Cloudy",
+      "partly_cloudy": "Partly Cloudy",
+      "rain": "Rain",
+      "heavy_rain": "Heavy Rain",
+      "snow": "Snow",
+      "thunderstorm": "Thunderstorm",
+      "fog": "Fog",
+      "windy": "Windy"
+    }
+  },
+  "cta": {
+    "makeItRain": "Make It Rain",
+    "rainOrShine": "Rain or Shine",
+    "backYourForecast": "Back Your Forecast",
+    "seeTheFuture": "See the Future",
+    "weatherTheStorm": "Weather the Storm"
+  }
+}
